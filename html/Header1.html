@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <style id="webmakerstyle">
 .tab {
     overflow: hidden;
@@ -45,6 +45,7 @@
   text-align:center;
   clear:left;
   font: italic bold 30px Georgia, serif;
+  z-index: -1;
 }
 .search{
   float: right;
@@ -54,7 +55,7 @@
   //margin-top: 8px;
   font-size: 17px;
   border-right:none;
-  
+
 }
 .search button{
   float: right;
@@ -105,13 +106,23 @@
     font-size: 36px;
     margin-left: 50px;
 }
-
+.login_signin {
+  float:right;
+}
+.login_signin a {
+  text-decoration: none;
+}
 #main {
     transition: margin-left .5s;
 }
 </style>
 </head>
 <body>
+
+  <div class="login_signin">
+    <p><a href="">login</a> / <a href="">sign in</a></p>
+  </div>
+
 	<h1 id="logo" href = "">
 	  ProjectSpot
 	</h1>
@@ -120,9 +131,9 @@
 		<div class="cont" onclick = "openNav()">
 		<div class="burger"></div>
 		<div class="burger"></div>
-		<div class="burger"></div> 
+		<div class="burger"></div>
 	</div>
-  
+
 	<div id="mySidenav" class="sidenav">
 		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
 		<a href="#">A</a>
@@ -135,7 +146,7 @@
 
 <!-- out source from w3schools.com -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	
+
 	<div class="search">
 	  <form action="">
 		  <input type="text" placeholder="Search.." name="search">
@@ -154,11 +165,24 @@
 	  <button class="tablinks" onclick="openTab(event)">Top Projects</button>
 	</div>
 
+  <!--------------content----------->
 
+
+
+
+
+
+  <!-------------------------------->
+
+  <footer>
+    <hr>
+    <p>Posted by: FCIT students</p>
+    <p>we should put footer here and design it </p>
+  </footer>
 
 	<script>
 	function openTab(evt) {
-		var i, tablinks;    
+		var i, tablinks;
 		tablinks = document.getElementsByClassName("tablinks");
 		for (i = 0; i < tablinks.length; i++) {
 			tablinks[i].className = tablinks[i].className.replace(" active", "");
