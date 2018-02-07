@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+
+<style id="webmakerstyle">
+.tab {
+    overflow: hidden;
+    border-bottom:solid;
+}
+/* define the teb buttens style*/
+.tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 17px;
+    width:25%;
+}
+/*the tab color on hover*/
+.tab button:hover {
+    background-color: #ddd;
+}
+.tab button.active {
+    background-color: #ccc;
+}
+
+/* end of tab style*/
+/*define the shape of the bar*/
+.burger {
+    width: 35px;
+    height: 5px;
+    background-color: black;
+    margin: 6px 0;
+}
+.cont{
+  //margin-top:25px;
+  margin-left:10px;
+  float:left;
+  cursor: pointer;}
+#logo{
+  text-align:center;
+  clear:left;
+  font: italic bold 30px Georgia, serif;
+}
+.search{
+  float: right;
+}
+.search input{
+  padding: 6px;
+  //margin-top: 8px;
+  font-size: 17px;
+  border-right:none;
+  
+}
+.search button{
+  float: right;
+  padding: 6px;
+  //margin-top: 8px;
+  margin-right: 16px;
+  background: #ddd;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+  height:35px;
+  width:30px;
+}
+.search button:hover{
+  background-color: #ccc;
+}
+/*------------------------------*/
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+#main {
+    transition: margin-left .5s;
+}
+</style>
+</head>
+<body>
+	<h1 id="logo" href = "">
+	  ProjectSpot
+	</h1>
+	<div>
+
+	<div class="cont" onclick = "openNav()">
+		<div class="burger"></div>
+		<div class="burger"></div>
+		<div class="burger"></div> 
+	</div>
+  
+	<div id="mySidenav" class="sidenav">
+		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+		<a href="#">A</a>
+		<a href="#">B</a>
+		<a href="#">C</a>
+		<a href="#">D</a>
+		<a href="#">E</a>
+		<a href="#">F</a>
+	</div>
+
+<!-- out source from w3schools.com -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+	<div class="search">
+	  <form action="">
+		  <input type="text" placeholder="Search.." name="search">
+		  <button type="submit"><i class="fa fa-search"></i></button>
+	  </form>
+	  <a href="">Advanced search</a>
+	</div>
+	<br>
+	<br>
+	<br>
+	<!--<img class="search" src="https://d30y9cdsu7xlg0.cloudfront.net/png/424965-200.png" width="30px" height="30px">-->
+
+	<div id = "main" class="tab">
+	  <button class="tablinks" onclick="openTab(event)">Account</button>
+	  <button class="tablinks" onclick="openTab(event)">My Project</button>
+	  <button class="tablinks" onclick="openTab(event)">My Team</button>
+	  <button class="tablinks" onclick="openTab(event)">Mail Box</button>
+	</div>
+
+
+
+<script>
+function openTab(evt) {
+    var i, tablinks;    
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    evt.currentTarget.className += " active";
+}
+
+
+function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+    document.getElementById("main").style.marginLeft = "250px";
+    document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+}
+
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+    document.getElementById("main").style.marginLeft= "0";
+    document.body.style.backgroundColor = "white";
+}
+
+//# sourceURL=userscript.js
+</script>
+</body>
+</html>
