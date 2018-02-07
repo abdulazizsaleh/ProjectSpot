@@ -3,14 +3,21 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<style id="webmakerstyle">
+<style>
+body {
+  background-color: #f1f1f1;
+}
+.myHeader {
+  background-color : white;
+  padding-bottom: 80px;
+}
 .tab {
     overflow: hidden;
     border-bottom:solid;
 }
 /* define the teb buttens style*/
 .tab button {
-    background-color: inherit;
+    background-color: white;
     float: left;
     border: none;
     outline: none;
@@ -18,7 +25,7 @@
     padding: 14px 16px;
     transition: 0.3s;
     font-size: 17px;
-    width:33%;
+    width:33.333333333333333333333333333333%;
 }
 /*the tab color on hover*/
 .tab button:hover {
@@ -42,10 +49,11 @@
   float:left;
   cursor: pointer;}
 #logo{
-  text-align:center;
-  clear:left;
+  text-align: center;
   font: italic bold 30px Georgia, serif;
   z-index: -1;
+  padding-left: 100px;
+  padding-bottom:25px;
 }
 .search{
   float: right;
@@ -108,31 +116,45 @@
 }
 .login_signin {
   float:right;
+  padding-right: 10px;
+
 }
 .login_signin a {
   text-decoration: none;
+  font-size: 18px;
+  color: gray;
+}
+.login_signin a:hover{
+  color: #00bfff;
+}
+.login_signin p{
+font-size: 18px;
 }
 #main {
     transition: margin-left .5s;
 }
+#myHeaderMove {
+    transition: margin-left .5s;
+}
+
+
 </style>
 </head>
 <body>
-
+<div class="myHeader" id = "myHeaderMove">
   <div class="login_signin">
     <p><a href="">login</a> / <a href="">sign in</a></p>
   </div>
 
-	<h1 id="logo" href = "">
+	<header id="logo" href = "">
 	  ProjectSpot
-	</h1>
+	</header>
 
-	<div>
 		<div class="cont" onclick = "openNav()">
-		<div class="burger"></div>
-		<div class="burger"></div>
-		<div class="burger"></div>
-	</div>
+  		<div class="burger"></div>
+  		<div class="burger"></div>
+  		<div class="burger"></div>
+	  </div>
 
 	<div id="mySidenav" class="sidenav">
 		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
@@ -154,12 +176,10 @@
 	  </form>
 	  <a href="">Advanced search</a>
 	</div>
-	<br>
-	<br>
-	<br>
+  </div>
 	<!--<img class="search" src="https://d30y9cdsu7xlg0.cloudfront.net/png/424965-200.png" width="30px" height="30px">-->
-
-	<div id = "main" class="tab">
+  <div id="main">
+	<div class="tab">
 	  <button class="tablinks" onclick="openTab(event)">Home</button>
 	  <button class="tablinks" onclick="openTab(event)">Projects</button>
 	  <button class="tablinks" onclick="openTab(event)">Top Projects</button>
@@ -169,7 +189,7 @@
 
 
 
-
+  <div class="content" style="padding-bottom:1000px"></div>
 
 
   <!-------------------------------->
@@ -179,7 +199,7 @@
     <p>Posted by: FCIT students</p>
     <p>we should put footer here and design it </p>
   </footer>
-
+</div>  <!--   end of id = main -->
 	<script>
 	function openTab(evt) {
 		var i, tablinks;
@@ -194,13 +214,15 @@
 	function openNav() {
 		document.getElementById("mySidenav").style.width = "250px";
 		document.getElementById("main").style.marginLeft = "250px";
-		document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+    document.getElementById("myHeaderMove").style.marginLeft = "250px";
+		//document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
 	}
 
 	function closeNav() {
 		document.getElementById("mySidenav").style.width = "0";
 		document.getElementById("main").style.marginLeft= "0";
-		document.body.style.backgroundColor = "white";
+    document.getElementById("myHeaderMove").style.marginLeft = "0";
+		//document.body.style.backgroundColor = "white";
 	}
 
 	//# sourceURL=userscript.js

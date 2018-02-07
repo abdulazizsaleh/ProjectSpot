@@ -2,15 +2,22 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-
-<style id="webmakerstyle">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  background-color: #f1f1f1;
+}
+.myHeader {
+  background-color : white;
+  padding-bottom: 80px;
+}
 .tab {
     overflow: hidden;
     border-bottom:solid;
 }
 /* define the teb buttens style*/
 .tab button {
-    background-color: inherit;
+    background-color: white;
     float: left;
     border: none;
     outline: none;
@@ -41,10 +48,13 @@
   margin-left:10px;
   float:left;
   cursor: pointer;}
+
 #logo{
-  text-align:center;
-  clear:left;
-  font: italic bold 30px Georgia, serif;
+    text-align: center;
+    font: italic bold 30px Georgia, serif;
+    z-index: -1;
+    padding-left: 100px;
+    padding-bottom:25px;
 }
 .search{
   float: right;
@@ -54,7 +64,7 @@
   //margin-top: 8px;
   font-size: 17px;
   border-right:none;
-  
+
 }
 .search button{
   float: right;
@@ -106,23 +116,47 @@
     margin-left: 50px;
 }
 
+.login_signin {
+  float:right;
+  padding-right: 10px;
+
+}
+.login_signin a {
+  text-decoration: none;
+  font-size: 18px;
+  color: gray;
+}
+.login_signin a:hover{
+  color: #00bfff;
+}
+.login_signin p{
+font-size: 18px;
+}
+
 #main {
+    transition: margin-left .5s;
+}
+#myHeaderMove {
     transition: margin-left .5s;
 }
 </style>
 </head>
 <body>
-	<h1 id="logo" href = "">
-	  ProjectSpot
-	</h1>
-	<div>
+  <div class="myHeader" id ="myHeaderMove">
+  <div class="login_signin">
+    <p><a href="">login</a> / <a href="">sign in</a></p>
+  </div>
 
-	<div class="cont" onclick = "openNav()">
-		<div class="burger"></div>
-		<div class="burger"></div>
-		<div class="burger"></div> 
-	</div>
-  
+	<header id="logo" href = "">
+	  ProjectSpot
+	</header>
+
+	  <div class="cont" onclick = "openNav()">
+  		<div class="burger"></div>
+  		<div class="burger"></div>
+  		<div class="burger"></div>
+	  </div>
+
 	<div id="mySidenav" class="sidenav">
 		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
 		<a href="#">A</a>
@@ -135,7 +169,7 @@
 
 <!-- out source from w3schools.com -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	
+
 	<div class="search">
 	  <form action="">
 		  <input type="text" placeholder="Search.." name="search">
@@ -143,23 +177,60 @@
 	  </form>
 	  <a href="">Advanced search</a>
 	</div>
-	<br>
-	<br>
-	<br>
+</div>
 	<!--<img class="search" src="https://d30y9cdsu7xlg0.cloudfront.net/png/424965-200.png" width="30px" height="30px">-->
-
-	<div id = "main" class="tab">
+  <div id="main">
+	<div class="tab">
 	  <button class="tablinks" onclick="openTab(event)">Account</button>
 	  <button class="tablinks" onclick="openTab(event)">My Project</button>
 	  <button class="tablinks" onclick="openTab(event)">My Team</button>
 	  <button class="tablinks" onclick="openTab(event)">Mail Box</button>
 	</div>
+  <!--------------content----------->
 
 
 
+  <div class="content" style="padding-bottom:1000px"></div>
+
+
+  <!-------------------------------->
+
+  <footer>
+    <hr>
+    <p>Posted by: FCIT students</p>
+    <p>we should put footer here and design it </p>
+  </footer>
+  </div>  <!--   end of id = main -->
+
+  <script>
+  function openTab(evt) {
+    var i, tablinks;
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    evt.currentTarget.className += " active";
+  }
+
+
+  function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+    document.getElementById("main").style.marginLeft = "250px";
+    document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+  }
+
+  function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+    document.getElementById("main").style.marginLeft= "0";
+    document.body.style.backgroundColor = "white";
+  }
+
+  //# sourceURL=userscript.js
+  </script>
+  </body>
 <script>
 function openTab(evt) {
-    var i, tablinks;    
+    var i, tablinks;
     tablinks = document.getElementsByClassName("tablinks");
     for (i = 0; i < tablinks.length; i++) {
         tablinks[i].className = tablinks[i].className.replace(" active", "");
@@ -169,15 +240,17 @@ function openTab(evt) {
 
 
 function openNav() {
-    document.getElementById("mySidenav").style.width = "250px";
-    document.getElementById("main").style.marginLeft = "250px";
-    document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+  document.getElementById("mySidenav").style.width = "250px";
+  document.getElementById("main").style.marginLeft = "250px";
+  document.getElementById("myHeaderMove").style.marginLeft = "250px";
+  //document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
 }
 
 function closeNav() {
-    document.getElementById("mySidenav").style.width = "0";
-    document.getElementById("main").style.marginLeft= "0";
-    document.body.style.backgroundColor = "white";
+  document.getElementById("mySidenav").style.width = "0";
+  document.getElementById("main").style.marginLeft= "0";
+  document.getElementById("myHeaderMove").style.marginLeft = "0";
+  //document.body.style.backgroundColor = "white";
 }
 
 //# sourceURL=userscript.js
