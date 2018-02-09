@@ -3,143 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-body {
-  background-color: #f1f1f1;
-}
-.myHeader {
-  background-color : white;
-  padding-bottom: 80px;
-}
-.tab {
-    overflow: hidden;
-    border-bottom:solid;
-}
-/* define the teb buttens style*/
-.tab button {
-    background-color: white;
-    float: left;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    padding: 14px 16px;
-    transition: 0.3s;
-    font-size: 17px;
-    width:25%;
-}
-/*the tab color on hover*/
-.tab button:hover {
-    background-color: #ddd;
-}
-.tab button.active {
-    background-color: #ccc;
-}
-
-/* end of tab style*/
-/*define the shape of the bar*/
-.burger {
-    width: 35px;
-    height: 5px;
-    background-color: black;
-    margin: 6px 0;
-}
-.cont{
-  //margin-top:25px;
-  margin-left:10px;
-  float:left;
-  cursor: pointer;}
-
-#logo{
-    text-align: center;
-    font: italic bold 30px Georgia, serif;
-    z-index: -1;
-    padding-left: 100px;
-    padding-bottom:25px;
-}
-.search{
-  float: right;
-}
-.search input{
-  padding: 6px;
-  //margin-top: 8px;
-  font-size: 17px;
-  border-right:none;
-
-}
-.search button{
-  float: right;
-  padding: 6px;
-  //margin-top: 8px;
-  margin-right: 16px;
-  background: #ddd;
-  font-size: 17px;
-  border: none;
-  cursor: pointer;
-  height:35px;
-  width:30px;
-}
-.search button:hover{
-  background-color: #ccc;
-}
-/*------------------------------*/
-.sidenav {
-    height: 100%;
-    width: 0;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    background-color: #111;
-    overflow-x: hidden;
-    transition: 0.5s;
-    padding-top: 60px;
-}
-
-.sidenav a {
-    padding: 8px 8px 8px 32px;
-    text-decoration: none;
-    font-size: 25px;
-    color: #818181;
-    display: block;
-    transition: 0.3s;
-}
-
-.sidenav a:hover {
-    color: #f1f1f1;
-}
-
-.sidenav .closebtn {
-    position: absolute;
-    top: 0;
-    right: 25px;
-    font-size: 36px;
-    margin-left: 50px;
-}
-
-.login_signin {
-  float:right;
-  padding-right: 10px;
-
-}
-.login_signin a {
-  text-decoration: none;
-  font-size: 18px;
-  color: gray;
-}
-.login_signin a:hover{
-  color: #00bfff;
-}
-.login_signin p{
-font-size: 18px;
-}
-
-#main {
-    transition: margin-left .5s;
-}
-#myHeaderMove {
-    transition: margin-left .5s;
-}
-</style>
+<link rel ="stylesheet" href = "css\styles.css">
 </head>
 <body>
   <div class="myHeader" id ="myHeaderMove">
@@ -180,7 +44,7 @@ font-size: 18px;
 </div>
 	<!--<img class="search" src="https://d30y9cdsu7xlg0.cloudfront.net/png/424965-200.png" width="30px" height="30px">-->
   <div id="main">
-	<div class="tab">
+	<div class="tab2">
 	  <button class="tablinks" onclick="openTab(event)">Account</button>
 	  <button class="tablinks" onclick="openTab(event)">My Project</button>
 	  <button class="tablinks" onclick="openTab(event)">My Team</button>
