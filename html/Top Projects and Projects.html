@@ -5,18 +5,39 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel ="stylesheet" href = "css\styles.css">
 <style>
-h4:nth-child(3) {
-	text-align: right;
-}
-h4:nth-child(8){
-	text-align: right;
-}
-
 .card {
 	background-color: white;
 	padding: 20px;
   margin-top: 20px;
+	margin-left: auto;
+	margin-right: auto;
 	width: 75%;
+}
+.card img {
+	width: 100%;
+}
+.card table{
+	table-layout: fixed;
+	border-collapse: collapse;
+}
+.firstRow{
+	background-color: #404040;
+}
+.title{
+	font-size: 20px;
+	font-style: italic;
+	font-weight: bold;
+	color: #ffffff;
+
+}
+.rate{
+ color :#ffcc00;
+}
+.description{
+padding: 1%;
+}
+.view{
+ padding-top:10px;
 }
 </style>
 </head>
@@ -68,35 +89,79 @@ h4:nth-child(8){
 		  <!--------------content----------->
 
 			<div class="card">
-			<img src="https://upload.wikimedia.org/wikipedia/commons/6/63/Pie-chart.jpg" alt="example of a chart" width="480" height="335">
-			<h4>Project Title</h4>
-			<h4>Rating : 9.2 </h4>
-			<p>. . . .  . ..  ..  .. . . . . . . .. . .
-				 . . . . . .  ..  ..  . . . . . .. . . . .
-				 . ..  .. . . .  . . . . . .  . . . . . . . . .
-				 . . . . . . . . . . . . . . . .  . . .. . . . ...........
-				 ...........  . . . . . . . . . . . . ..Some description here . .. . . . .
-					. . .. . . .  .. . . .  . . . . . .. . . . . .. . . .  . . . . . . . . . .
-					. .  . . .  . . .  . . . .  . .. . . . . ..  .. . .  . . . . .. .  . . . .  . . .. ..
-					 . .. .. . . . . .  .. . .  . . . . . . . . . .. . . . . .. . . . </p>
-					<h5> views : 17 </h5>
+				<img src="..\image\image.png" alt="example of an image">
+				<table>
+					<tr class="firstRow">
+						<td class="title" width="50%">Project Title</td>
+						<td class="rate" width="50%" align="right">Rating : 9.2 </td>
+					</tr>
+					<tr>
+						<td class="description" width="100%" colspan="2">
+							Some description here . .. . . . .
+							. . .. . . .  .. . . .  . . . . . .. . . . . .. . . .  . . . . . . . . . .. .  .  . .
+							.  . . . .  . .. . . . . ..  .. . .  . . . . .. .  . . . .  . . .. ..
+							. .. .. . . . . .  .. . .  . . . . . . . . . .. . . . . .. . . . . . . .  . ..  ..  ..
+							 . . . . . . .. . . . . . . . .  ..  ..  . . . . . .. . . . .
+							. ..  .. . . .  . . . . . .  . . . . . . . . .
+							. . . . . . . . . . . . . . . .  . . .. . . . ...........
+							...........  . . . . . . . . . . . . ..
+						</td>
+					</tr>
+					<tr>
+						<td class="view" width="100%" colspan="2">views : 25,546 </td>
+					</tr>
+				</table>
 			</div>
 
 			<div class="card">
-			<img src="https://d33wubrfki0l68.cloudfront.net/85975663ee3d10baa062c8406db6c5f10627a601/0a978/images/chart-title.png" alt="example of a chart" width="480" height="335">
-			<h4>Project Title</h4>
-			<h4>Rating : 9.2 </h4>
-			<p>. . . .  . ..  ..  .. . . . . . . .. . .
-				 . . . . . .  ..  ..  . . . . . .. . . . .
-				 . ..  .. . . .  . . . . . .  . . . . . . . . .
-				 . . . . . . . . . . . . . . . .  . . .. . . . ...........
-				 ...........  . . . . . . . . . . . . ..Some description here . .. . . . .
-				  . . .. . . .  .. . . .  . . . . . .. . . . . .. . . .  . . . . . . . . . .
-					. .  . . .  . . .  . . . .  . .. . . . . ..  .. . .  . . . . .. .  . . . .  . . .. ..
-					 . .. .. . . . . .  .. . .  . . . . . . . . . .. . . . . .. . . . </p>
-			<h5> views : 17 </h5>
-		</div>
-		  <div class="content" style="padding-bottom:1000px"></div>
+				<img src="..\image\image.png" alt="example of an image">
+				<table>
+					<tr class="firstRow">
+						<td class="title" width="50%">Project Title</td>
+						<td class="rate" width="50%" align="right">Rating : 9.2 </td>
+					</tr>
+					<tr>
+						<td class="description" width="100%" colspan="2">
+							Some description here . .. . . . .
+							. . .. . . .  .. . . .  . . . . . .. . . . . .. . . .  . . . . . . . . . .. .  .  . .
+							.  . . . .  . .. . . . . ..  .. . .  . . . . .. .  . . . .  . . .. ..
+							. .. .. . . . . .  .. . .  . . . . . . . . . .. . . . . .. . . . . . . .  . ..  ..  ..
+							 . . . . . . .. . . . . . . . .  ..  ..  . . . . . .. . . . .
+							. ..  .. . . .  . . . . . .  . . . . . . . . .
+							. . . . . . . . . . . . . . . .  . . .. . . . ...........
+							...........  . . . . . . . . . . . . ..
+						</td>
+					</tr>
+					<tr>
+						<td class="view" width="100%" colspan="2">views : 25,546 </td>
+					</tr>
+				</table>
+			</div>
+
+			<div class="card">
+				<img src="..\image\image.png" alt="example of an image">
+				<table>
+					<tr class="firstRow">
+						<td class="title" width="50%">Project Title</td>
+						<td class="rate" width="50%" align="right">Rating : 9.2 </td>
+					</tr>
+					<tr>
+						<td class="description" width="100%" colspan="2">
+							Some description here . .. . . . .
+							. . .. . . .  .. . . .  . . . . . .. . . . . .. . . .  . . . . . . . . . .. .  .  . .
+							.  . . . .  . .. . . . . ..  .. . .  . . . . .. .  . . . .  . . .. ..
+							. .. .. . . . . .  .. . .  . . . . . . . . . .. . . . . .. . . . . . . .  . ..  ..  ..
+							 . . . . . . .. . . . . . . . .  ..  ..  . . . . . .. . . . .
+							. ..  .. . . .  . . . . . .  . . . . . . . . .
+							. . . . . . . . . . . . . . . .  . . .. . . . ...........
+							...........  . . . . . . . . . . . . ..
+						</td>
+					</tr>
+					<tr>
+						<td class="view" width="100%" colspan="2">views : 25,546 </td>
+					</tr>
+				</table>
+			</div>
 
 
 		  <!-------------------------------->
