@@ -5,29 +5,35 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel ="stylesheet" href = "css\styles.css">
 <style>
+table{
+  border-collapse: collapse;
+}
 .loginCard {
  background-color: white;
  margin-left: auto;
  margin-right: auto;
  margin-top: 20px;
- width: 40%;
+ width: 45%;
  padding-bottom:20px;
 }
 .thPadding th{
-  padding : 10px;
+  padding : 5px;
 }
 .loginCard img{
-  padding: 70px;
+  margin-top: 10%;
+  width: : 15%;
+  height: 15%;
 }
 .loginCard input[type=text], input[type=password] {
     padding: 5px 20px;
+    width: 100%;
 }
 .loginCard input[type=submit] {
     padding: 14px 20px;
     margin: 8px 0;
     border: none;
     cursor: pointer;
-    width: 100%;
+    width: auto;
 }
  .greenButton {
    background-color: #4CAF50;
@@ -89,16 +95,16 @@
     <!--------------content----------->
 
   <div class ="loginCard" align="center">
-    <img src ="..\image\User_Circle.png" alt ="image like a logo or userIcon" height="15%" width="15%">
+    <img src ="..\image\User_Circle.png" alt ="image like a logo or userIcon">
     <form action=""> <!--missing action-->
-      <table class = "thPadding">
+      <table class = "thPadding" >
         <tr>
-          <th>Username</th>
-          <th><input type="text" placeholder= "Enter username " name="user"></th>
+          <th width="20%">Username</th>
+          <th width="80%" ><input type="text" placeholder= "Enter username " name="user"></th>
         </tr>
         <tr>
-          <th>Password</th>
-          <th><input type="password" placeholder= "Enter password " name="pass"></th>
+          <th width="20%">Password</th>
+          <th width="80%"><input type="password" placeholder= "Enter password " name="pass"></th>
         </tr>
       </table>
 
