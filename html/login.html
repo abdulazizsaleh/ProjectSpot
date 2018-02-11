@@ -65,12 +65,15 @@ table{
 
   	<div id="mySidenav" class="sidenav">
   		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-  		<a href="#">A</a>
-  		<a href="#">B</a>
-  		<a href="#">C</a>
-  		<a href="#">D</a>
-  		<a href="#">E</a>
-  		<a href="#">F</a>
+      <a href="#">Login/Signin</a>
+      <a href="#">Categories</a>
+      <ul>
+      <li><a href="#">sub-categories</a></li>
+      <ul>
+        <li><a href="#">Sub-categories</a></li>
+      </ul>
+      </ul>
+  		<a href="#">Help</a>
   	</div>
 
   <!-- out source from w3schools.com -->
@@ -120,7 +123,6 @@ table{
   </div>
 
     <!-------------------------------->
-
     <footer>
       <hr>
       <p>Posted by: FCIT students</p>
@@ -131,7 +133,7 @@ table{
   	function openTab(evt) {
   		var i, tablinks;
   		tablinks = document.getElementsByClassName("tablinks");
-  		for (i = 0; i < tablinks.length; i++) {
+  		for (i   = 0; i < tablinks.length; i++) {
   			tablinks[i].className = tablinks[i].className.replace(" active", "");
   		}
   		evt.currentTarget.className += " active";
@@ -139,16 +141,16 @@ table{
 
 
   	function openNav() {
-  		document.getElementById("mySidenav").style.width = "250px";
-  		document.getElementById("main").style.marginLeft = "250px";
-      document.getElementById("myHeaderMove").style.marginLeft = "250px";
+  		document.getElementById("mySidenav").style.width           = "250px";
+  		document.getElementById("main").style.marginLeft           = "250px";
+      document.getElementById("myHeaderMove").style.marginLeft   = "250px";
   		//document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
   	}
 
   	function closeNav() {
-  		document.getElementById("mySidenav").style.width = "0";
-  		document.getElementById("main").style.marginLeft= "0";
-      document.getElementById("myHeaderMove").style.marginLeft = "0";
+  		document.getElementById("mySidenav").style.width           = "0";
+  		document.getElementById("main").style.marginLeft           = "0";
+      document.getElementById("myHeaderMove").style.marginLeft   = "0";
   		//document.body.style.backgroundColor = "white";
   	}
 
