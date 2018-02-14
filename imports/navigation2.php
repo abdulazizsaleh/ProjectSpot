@@ -12,6 +12,8 @@
 
 
     <ul class="nav navbar-nav navbar-right">
+      <li><a href="#"><span class="glyphicon glyphicon-user"></span> username</a></li>
+      
       <form class="navbar-form navbar-left" action="/action_page.php">
         <div class="input-group">
           <input type="text" class="form-control" placeholder="Search" name="search">
@@ -22,6 +24,7 @@
           </div>
         </div>
       </form>
+
       <!-- <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li> -->
       <!-- <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li> -->
       </ul>
