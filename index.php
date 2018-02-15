@@ -1,4 +1,5 @@
 <?php
+  require_once 'system/init.php';
   include 'imports/head.php';
   include 'imports/navigation1.php';
   // include 'imports/navigation2.php';
@@ -7,12 +8,7 @@
 
 <div class="container-fluid text-center">
   <div class="row content">
-    <!-- <div class="col-sm-12">
-      <div id="myHeader">
-        <div id=logotext></div>
-      </div>
-    </div> -->
-    <div class="col-sm-4" >
+    <div class="col-sm-4">
       <div class="well" id="hotspot">
         <img src="./image/image.png" class="img-rounded" alt="Cinque Terre" width="100%">
         <h3 class="text-center">
@@ -34,21 +30,11 @@
       <div class="row content" id="news">
         <br>
         <hr>
-        <div class="col-sm-4">
-          <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-          <h4 class="text-center">news topic</h3>
-          <p class="text-left text-justify">Imperdiet dui accumsan sit amet nulla facilisi morbi tempus iaculis. Vel facilisis volutpat est velit egestas dui. Lorem sed risus ultricies tristique nulla aliquet enim. Massa tempor nec feugiat nisl. <a href="#">click here</a></p>
-        </div>
-        <div class="col-sm-4">
-          <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-          <h4 class="text-center">news topic</h3>
-          <p class="text-left text-justify">Imperdiet dui accumsan sit amet nulla facilisi morbi tempus iaculis. Vel facilisis volutpat est velit egestas dui. Lorem sed risus ultricies tristique nulla aliquet enim. Massa tempor nec feugiat nisl. <a href="#">click here</a></p>
-        </div>
-        <div class="col-sm-4">
-          <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-          <h4 class="text-center">news topic</h3>
-          <p class="text-left text-justify">Imperdiet dui accumsan sit amet nulla facilisi morbi tempus iaculis. Vel facilisis volutpat est velit egestas dui. Lorem sed risus ultricies tristique nulla aliquet enim. Massa tempor nec feugiat nisl. <a href="#">click here</a></p>
-        </div>
+        <?php
+          include 'imports/news.php';
+          include 'imports/news.php';
+          include 'imports/news.php';
+         ?>
       </div>
     </div>
   </div>
