@@ -18,7 +18,7 @@ include 'imports/navigation1.php';
   <br>
   <a href="createNewAccount.php" class="btn btn-primary">create new account</a>
 </div>
-
+<div style="padding-bottom:320px"></div>
 <?php
 include 'imports/footer.php';
 ?>

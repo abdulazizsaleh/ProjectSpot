@@ -9,7 +9,7 @@
   $username = mysqli_real_escape_string($db,$username);
   $password = mysqli_real_escape_string($db,$password);
 
-  $result = mysqli_query($db,"select * from student where username = '".$username."' and password = '".$password."'");
+  $result = mysqli_query($db,"select * from account where username = '".$username."' and password = '".$password."'");
   $row = mysqli_fetch_array($result);
   if ($username != null && $password != null){
     if ($row['username']  == $username && $row['password'] == $password ){
