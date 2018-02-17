@@ -1,10 +1,58 @@
 <!DOCTYPE html>
 
 <html>
+<head>
+
+<script>
+
+<!-- the function below will require the user to enter the values -->
+
+function noEmptyValues()
+{
+   var fname = document.forms["validateCreate"]["firstname"].value;
+   if(fname == ""){
+	alert("Please Enter First Name");
+	return false;
+   }
+   
+   var lname = document.forms["validateCreate"]["Lastname"].value;
+   if(lname == ""){
+	alert("Please Enter Last Name");
+	return false;
+   }
+   
+   var emsg = document.forms["validateCreate"]["email"].value;
+   if(emsg == ""){
+	alert("Please Enter Email");
+	return false;
+   }
+   
+   var number = document.forms["validateCreate"]["phone"].value;
+   if(number == ""){
+	alert("Please Enter Phone Number");
+	return false;
+   }
+   
+   var living = document.forms["validateCreate"]["country"].value;
+   if(living == ""){
+	alert("Please Enter Country");
+	return false;
+   }
+   
+   var type = document.forms["validateCreate"]["person"].value;
+   if(type == ""){
+	alert("Please Choose which one");
+	return false;
+   }
+}
+
+</script>
+
+</head>
 <body>
 
-<form action="VerifyAccount.html">
-First Name :<input type="text" name="firstname">
+<form name="validateCreate" action="VerifyAccount.html" onsubmit="return noEmptyValues()">
+First Name :<input type="text" name="firstname">  <!-- this form directs the user to the next page -->
 <br>
 Last Name : <input type="text" name="Lastname">
 <br>
@@ -28,7 +76,12 @@ Are you ?
 <br>
 
 <input type="submit" value="Save & Submit">
-<input type="submit" value="Return">
+
+</form>
+
+<form action="login.html">
+
+<input type="submit" value="Return">  <!-- this form directs the user back to the login page -->
 
 </form>
 </body>
