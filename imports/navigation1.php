@@ -1,10 +1,10 @@
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#">ProjectSpot</a>
+      <a class="navbar-brand" href="./index.php">ProjectSpot</a>
     </div>
     <ul class="nav navbar-nav">
-      <li class="active"><a href="#">Home</a></li>
+      <li class="active"><a href="./index.php">Home</a></li>
       <li><a href="#">Projects</a></li>
       <li><a href="#">Top Projects</a></li>
     </ul>
@@ -21,7 +21,7 @@
           </div>
         </div>
       </form>
-      <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <li><a href="createNewAccount.php"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
       <li><a href="login.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
       </ul>
     </div>

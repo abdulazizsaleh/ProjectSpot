@@ -11,9 +11,15 @@
 
   $result = mysqli_query($db,"select * from student where username = '".$username."' and password = '".$password."'");
   $row = mysqli_fetch_array($result);
-  if ($row['username']  == $username && $row['password'] == $password ){
-    echo "success";
+  if ($username != null && $password != null){
+    if ($row['username']  == $username && $row['password'] == $password ){
+      header("location:./html/account.html");
+    }else{
+      header("location:login.php");
+    }
   }else{
-    echo "failed";
+    header("location:login.php");
   }
+
+
 ?>

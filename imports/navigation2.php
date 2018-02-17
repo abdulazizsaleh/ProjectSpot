@@ -1,7 +1,7 @@
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#">ProjectSpot</a>
+      <a class="navbar-brand" href="./index.php">ProjectSpot</a>
     </div>
     <ul class="nav navbar-nav">
       <li class="active"><a href="#">Account</a></li>
@@ -13,7 +13,7 @@
 
     <ul class="nav navbar-nav navbar-right">
       <li><a href="#"><span class="glyphicon glyphicon-user"></span> username</a></li>
-      
+
       <form class="navbar-form navbar-left" action="/action_page.php">
         <div class="input-group">
           <input type="text" class="form-control" placeholder="Search" name="search">
