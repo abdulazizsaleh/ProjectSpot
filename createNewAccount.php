@@ -4,7 +4,7 @@ include 'imports/navigation1.php';
  ?>
 
  <div class="container">
-   <form class="" action="" method="post">
+   <form class="" action="verifyProcess.php" method="post">
      <div class="form-row">
        <div class="form-group col-md-6">
          <label for="inputFirstname">first name</label>
@@ -18,25 +18,25 @@ include 'imports/navigation1.php';
 
      <div class="form-group col-md-12">
        <label for="inputEmail" >Email</label>
-       <input type="email" class="form-control" placeholder="Email">
+       <input type="email" name="email" class="form-control" placeholder="Email">
      </div>
      <div class="form-group col-md-12">
        <label for="inputPhone">phone number</label>
-       <input type="tel" class="form-control" placeholder="phone number">
+       <input type="tel"  name="phone" class="form-control" placeholder="phone number">
      </div>
 
      <fieldset class="form-group col-md-12">
        <legend>Are you ?</legend>
        <div class="form-check col-md-10">
-        <input class="form-check-input" type="radio" name="type" value="option1" checked>
+        <input class="form-check-input" type="radio" name="type" value="student" checked>
         <label class="form-check-label" for="student">student</label>
        </div>
        <div class="form-check col-md-10">
-        <input class="form-check-input" type="radio" name="type" value="option2">
+        <input class="form-check-input" type="radio" name="type" value="professor">
         <label class="form-check-label" for="professor">professor</label>
        </div>
        <div class="form-check col-md-10">
-        <input class="form-check-input" type="radio" name="type" value="option3">
+        <input class="form-check-input" type="radio" name="type" value="other">
         <label class="form-check-label" for="other">other</label>
        </div>
      </fieldset>
@@ -66,7 +66,7 @@ include 'imports/navigation1.php';
 
      <div class="form-group col-md-12">
        <label for="inputID">university ID</label>
-       <input type="number" class="form-control" placeholder="university ID">
+       <input type="number" name="ID" class="form-control" placeholder="university ID">
      </div>
      <div class="form-group col-md-12 text-right">
        <button type="submit" class="btn btn-primary btn-lg">next</button>
