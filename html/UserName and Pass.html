@@ -1,14 +1,50 @@
 <!DOCTYPE html>
 
 <html>
+
+<head>
+
+<script>
+
+	function insertValues(){
+	  
+	  
+	  <!-- function to not allow empty inputs -->
+		var user = document.forms["checkUser"]["usern"].value;
+		if(user == "")
+		{
+			alert("Please Enter your New User Name");
+			return false;
+		}
+		
+		var user = document.forms["checkUser"]["pass1"].value;
+		if(user == "")
+		{
+			alert("Please Enter your New Password");
+			return false;
+		}
+		
+		var user = document.forms["checkUser"]["pass2"].value;
+		if(user == "")
+		{
+			alert("Please Enter your Password Again");
+			return false;
+		}
+	}
+
+
+</script>
+
+</head>
+
 <body>
 
-<form action="">
+<form name="checkUser" action="login.html" onsubmit="return insertValues()">
 Username :<input type="text" name="usern">
 <br>
-Password : <input type="password" name="passw">
-<br>
-Confirm Password : <input type="password" name="passw">
+Password : <input type="password" name="pass1">
+<br>													<!-- changed the names attribute that belongs to password type to clear the confusion -->
+Confirm Password : <input type="password" name="pass2">
 <br>
 <br>
 <input type="submit" value="Create Account">
