@@ -8,21 +8,21 @@ include 'imports/navigation1.php';
      <div class="form-row">
        <div class="form-group col-md-6">
          <label for="inputFirstname">first name</label>
-         <input type="text" name="Firstname" class="form-control" placeholder="first name">
+         <input type="text" name="Firstname" class="form-control" placeholder="first name" required>
        </div>
        <div class="form-group col-md-6">
          <label for="inputLastname">first name</label>
-         <input type="text" name="Lastname" class="form-control" placeholder="Last name">
+         <input type="text" name="Lastname" class="form-control" placeholder="Last name" required>
        </div>
      </div>
 
      <div class="form-group col-md-12">
        <label for="inputEmail" >Email</label>
-       <input type="email" name="email" class="form-control" placeholder="Email">
+       <input type="email" name="email" class="form-control" placeholder="Email" required>
      </div>
      <div class="form-group col-md-12">
        <label for="inputPhone">phone number</label>
-       <input type="tel"  name="phone" class="form-control" placeholder="phone number">
+       <input type="tel"  name="phone" class="form-control" placeholder="phone number" required>
      </div>
 
      <fieldset class="form-group col-md-12">
@@ -43,19 +43,19 @@ include 'imports/navigation1.php';
 
      <div class="form-row">
        <div class="form-group col-md-4">
-         <input list="universities" name="university" placeholder="university" class="form-control">
+         <input list="universities" name="university" placeholder="university" class="form-control" required>
          <datalist id="universities">
            <option value="KAU">
          </datalist>
        </div>
        <div class="form-group col-md-4">
-         <input list="faculties" name="faculty" placeholder="faculty" class="form-control">
+         <input list="faculties" name="faculty" placeholder="faculty" class="form-control" required>
          <datalist id="faculties">
            <option value="FCIT">
          </datalist>
        </div>
        <div class="form-group col-md-4">
-         <input list="departments" name="department" placeholder="department" class="form-control">
+         <input list="departments" name="department" placeholder="department" class="form-control" required>
          <datalist id="departments">
            <option value="IT">
            <option value="CS">
@@ -66,7 +66,7 @@ include 'imports/navigation1.php';
 
      <div class="form-group col-md-12">
        <label for="inputID">university ID</label>
-       <input type="number" name="ID" class="form-control" placeholder="university ID">
+       <input type="number" name="ID" class="form-control" placeholder="university ID" required>
      </div>
      <div class="form-group col-md-12 text-right">
        <button type="submit" class="btn btn-primary btn-lg">next</button>
