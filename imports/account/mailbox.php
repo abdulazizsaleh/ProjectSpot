@@ -14,6 +14,5 @@
         <a href="#" class="list-group-item list-group-item-action">
           <img src="" alt="open or close message icon"> message</a>
       </div>
-
     </div>
   </div>

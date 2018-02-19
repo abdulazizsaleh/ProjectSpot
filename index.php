@@ -32,8 +32,6 @@
         <hr>
         <?php
           include 'imports/news.php';
-          include 'imports/news.php';
-          include 'imports/news.php';
          ?>
       </div>
     </div>
