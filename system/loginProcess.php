@@ -13,12 +13,12 @@
   $row = mysqli_fetch_array($result);
   if ($username != null && $password != null){
     if ($row['username']  == $username && $row['password'] == $password ){
-      header("location:./html/account.html");
+      header("location:../account.php");
     }else{
-      header("location:login.php");
+      header("location:../login.php");
     }
   }else{
-    header("location:login.php");
+    header("location:../login.php");
   }
 
 

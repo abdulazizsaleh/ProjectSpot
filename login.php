@@ -4,7 +4,7 @@ include 'imports/navigation1.php';
  ?>
 
 <div class="container">
-  <form class="form-signin" action="loginProcess.php" method="post">
+  <form class="form-signin" action="system/loginProcess.php" method="post">
       <div class="form-group">
         <label for="formGroupExampleInput">Username</label>
         <input type="text" class="form-control" placeholder= "Enter username " name="username" required>

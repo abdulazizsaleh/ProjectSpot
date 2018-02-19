@@ -4,7 +4,7 @@ include 'imports/navigation1.php';
  ?>
 
  <div class="container">
-   <form class="" action="verifyProcess.php" method="post">
+   <form class="" action="system/verifyProcess.php" method="post">
      <div class="form-row">
        <div class="form-group col-md-6">
          <label for="inputFirstname">first name</label>

@@ -4,7 +4,7 @@ include 'imports/navigation1.php';
  ?>
 
   <div class="container">
-    <form class="" action="createAccountProcess.php" method="post">
+    <form class="" action="system/createAccountProcess.php" method="post">
       <div class="form-group">
         <label for="username">username</label>
         <input type="text" name="username" class="form-control" placeholder="Enter username" required>

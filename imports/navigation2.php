@@ -4,7 +4,7 @@
       <a class="navbar-brand" href="./index.php">ProjectSpot</a>
     </div>
     <ul class="nav navbar-nav">
-      <li class="active"><a href="#">Account</a></li>
+      <li class="active"><a href="./account.php">Account</a></li>
       <li><a href="#">MyProject</a></li>
       <li><a href="#">MyTeam</a></li>
       <li><a href="#">Mail Box</a></li>
