@@ -43,7 +43,7 @@
   $ID = mysqli_real_escape_string($db,$ID);
 
   $sql = "insert into account (ID,username,frist_name,last_name,password,phone_num,email,university,faculty,dept,type)
-  values ('".$ID."','".$username."','".$firstname."','".$lastname."','".$password."','".$phone."','".$email."','".$university."','".$faculty."','".$department."','".$ID."')";
+  values ('".$ID."','".$username."','".$firstname."','".$lastname."','".$password."','".$phone."','".$email."','".$university."','".$faculty."','".$department."','".$type."')";
 
   if (mysqli_query($db, $sql)) {
       echo "New record created successfully";
