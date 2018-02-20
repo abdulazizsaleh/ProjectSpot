@@ -1,3 +1,8 @@
+<?php
+  require_once 'system/init.php';
+  session_start();
+  $username = $_SESSION["username"];
+?>
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -12,7 +17,7 @@
 
 
     <ul class="nav navbar-nav navbar-right">
-      <li><a href="#"><span class="glyphicon glyphicon-user"></span> username</a></li>
+      <li><a href="#"><span class="glyphicon glyphicon-user"></span> <?php echo $username ?> </a></li>
 
       <form class="navbar-form navbar-left" action="/action_page.php">
         <div class="input-group">

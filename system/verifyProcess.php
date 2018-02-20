@@ -23,9 +23,9 @@
 
   /*
         here sms code should send to the user phone number
-  */ 
+  */
 
-  header("location:verify.php");
+  header("location:../verify.php");
 
 
  ?>

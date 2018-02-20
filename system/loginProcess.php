@@ -1,5 +1,5 @@
 <?php
-
+  session_start();
   $username = $_POST['username'];
   $password = $_POST['password'];
   $db = mysqli_connect('127.0.0.1','root','','projectSpot');
@@ -13,6 +13,7 @@
   $row = mysqli_fetch_array($result);
   if ($username != null && $password != null){
     if ($row['username']  == $username && $row['password'] == $password ){
+      $_SESSION["username"] = $username;
       header("location:../account.php");
     }else{
       header("location:../login.php");

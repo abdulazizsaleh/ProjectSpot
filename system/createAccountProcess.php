@@ -42,8 +42,8 @@
   $department = mysqli_real_escape_string($db,$department);
   $ID = mysqli_real_escape_string($db,$ID);
 
-  $sql = "insert into account (ID,username,frist_name,last_name,password,phone_num,email,university,faculty,dept,type)
-  values ('".$ID."','".$username."','".$firstname."','".$lastname."','".$password."','".$phone."','".$email."','".$university."','".$faculty."','".$department."','".$type."')";
+  $sql = "insert into account (ID,username,frist_name,last_name,password,phone_num,email,university,faculty,dept,type,image,DOB,gender)
+  values ('".$ID."','".$username."','".$firstname."','".$lastname."','".$password."','".$phone."','".$email."','".$university."','".$faculty."','".$department."','".$type."','".null."','".null."','".null."')";
 
   if (mysqli_query($db, $sql)) {
       echo "New record created successfully";
@@ -54,5 +54,5 @@
       header("location:createNewAccount.php");
   }
   mysqli_close($db);
-  header("location:login.php");
+  header("location:../login.php");
  ?>

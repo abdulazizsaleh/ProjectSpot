@@ -1,3 +1,7 @@
+<?php
+$result = mysqli_query($db,"select * from account where username = '".$username."'");
+$row = mysqli_fetch_array($result);
+?>
 <div class="container-fluid text-center">
 <div class="col-md-3">
   <div class="well">
@@ -8,15 +12,19 @@
         <table class="table">
           <tr>
             <th>name:</th>
-            <td>value</td>
+            <td><?php echo $row['frist_name']." ".$row['last_name'] ?></td>
           </tr>
           <tr>
             <th>username:</th>
-            <td>value</td>
+            <td><?php echo $row['username'] ?></td>
           </tr>
           <tr>
             <th>faculty:</th>
-            <td>value</td>
+            <td><?php echo $row['faculty'] ?></td>
+          </tr>
+          <tr>
+            <th>department:</th>
+            <td><?php echo $row['dept'] ?></td>
           </tr>
           <tr>
             <th>age:</th>
