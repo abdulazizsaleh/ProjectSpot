@@ -2,7 +2,6 @@
 include 'imports/head.php';
 include 'imports/navigation1.php';
  ?>
-
   <div class="container text-center">
     <div class="row">
       <img src="./image/image.png" class="img-rounded" alt="Cinque Terre" >

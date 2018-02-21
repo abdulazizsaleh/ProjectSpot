@@ -4,9 +4,9 @@
       <a class="navbar-brand" href="./index.php">ProjectSpot</a>
     </div>
     <ul class="nav navbar-nav">
-      <li class="active"><a href="./index.php">Home</a></li>
-      <li><a href="#">Projects</a></li>
-      <li><a href="#">Top Projects</a></li>
+      <li id="home"><a href="./index.php">Home</a></li>
+      <li id="project"><a href="./projects.php">Projects</a></li>
+      <li id="top"><a href="./TopProject.php">Top Projects</a></li>
     </ul>
 
 

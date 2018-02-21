@@ -8,8 +8,8 @@ $row = mysqli_fetch_array($result);
     <p><a href="#">My Profile</a></p>
     <img src="image/image.png" class="img-circle" height="95" width="95" alt="Avatar">
       <div>
-        <br>
         <table class="table">
+          <br>
           <tr>
             <th>name:</th>
             <td><?php echo $row['frist_name']." ".$row['last_name'] ?></td>

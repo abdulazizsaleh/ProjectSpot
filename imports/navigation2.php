@@ -9,10 +9,10 @@
       <a class="navbar-brand" href="./index.php">ProjectSpot</a>
     </div>
     <ul class="nav navbar-nav">
-      <li class="active"><a href="./account.php">Account</a></li>
-      <li><a href="#">MyProject</a></li>
-      <li><a href="#">MyTeam</a></li>
-      <li><a href="#">Mail Box</a></li>
+      <li id="account"><a href="./account.php">Account</a></li>
+      <li id="myProject"><a href="./MyProject.php">MyProject</a></li>
+      <li id="myTeam"><a href="./Myteam.php">MyTeam</a></li>
+      <li id="mailBox"><a href="./MailBox.php">Mail Box</a></li>
     </ul>
 
 

@@ -2,7 +2,6 @@
 include 'imports/head.php';
 include 'imports/navigation1.php';
  ?>
-
   <div class="container">
     <form class="" action="system/createAccountProcess.php" method="post">
       <div class="form-group">

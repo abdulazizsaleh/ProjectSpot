@@ -5,7 +5,9 @@
   // include 'imports/navigation2.php';
   include 'imports/header.php';
 ?>
-
+<script type="text/javascript">
+    document.getElementById('home').className = "active";
+</script>
 <div class="container-fluid text-center">
   <div class="row content">
     <div class="col-sm-4">
