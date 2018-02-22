@@ -25,3 +25,8 @@ body{
   background-color: rgba(0, 0, 0, 0.69);
   color: rgb(255, 255, 255);
 }
+
+#projectsFont a{
+  font-size: 150%;
+  color: rgb(16, 145, 228);
+}

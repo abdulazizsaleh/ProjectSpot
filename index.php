@@ -11,15 +11,17 @@
 <div class="container-fluid text-center">
   <div class="row content">
     <div class="col-sm-4">
-      <div class="well" id="hotspot">
-        <img src="./image/image.png" class="img-rounded" alt="Cinque Terre" width="100%">
-        <h3 class="text-center">
-          topic
-        </h3>
+      <div class="panel panel-info">
+        <div class="panel-heading text-left">
+          <h3 class="panel-title">Title</h3>
+        </div>
+        <img src="./image/image.png" class="img-responsive" alt="Cinque Terre" width="100%" >
+        <div class="panel-body">
         <p class="text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Volutpat est velit egestas dui id ornare. Neque aliquam vestibulum morbi blandit cursus risus at ultrices mi. Non nisi est sit amet facilisis magna etiam tempor. Arcu ac tortor dignissim convallis aenean et tortor. In arcu cursus euismod quis viverra nibh cras pulvinar. Lacus vestibulum sed arcu non. Nulla facilisi nullam vehicula ipsum. Vel elit scelerisque mauris pellentesque pulvinar pellentesque habitant morbi tristique. Ac turpis egestas integer eget aliquet nibh praesent tristique. Venenatis cras sed felis eget velit. Ut pharetra sit amet aliquam id diam maecenas ultricies. Ultrices vitae auctor eu augue ut lectus arcu. Ligula ullamcorper malesuada proin libero nunc consequat interdum. Sit amet nisl suscipit adipiscing bibendum est ultricies integer quis. Diam sit amet nisl suscipit adipiscing bibendum est. Condimentum vitae sapien pellentesque habitant morbi tristique senectus et netus. Ipsum faucibus vitae aliquet nec ullamcorper sit amet risus. Ultricies mi eget mauris pharetra et ultrices neque ornare. Eget lorem dolor sed viverra ipsum nunc.
         Eget sit amet tellus cras adipiscing enim. Cursus turpis massa tincidunt dui ut ornare lectus. Facilisis sed odio morbi quis commodo odio. Odio morbi quis commodo odio aenean sed adipiscing diam. Venenatis cras sed felis eget velit aliquet. Morbi tempus iaculis urna id volutpat lacus laoreet. Ultrices neque ornare aenean euismod elementum nisi quis eleifend. Quisque egestas diam in arcu. Rutrum tellus pellentesque eu tincidunt tortor. Suspendisse faucibus interdum posuere lorem ipsum dolor sit. Eros in cursus turpis massa. Cras adipiscing enim eu turpis egestas pretium aenean. Orci a scelerisque purus semper eget duis. Feugiat in ante metus dictum. Imperdiet dui accumsan sit amet nulla facilisi morbi tempus iaculis. Vel facilisis volutpat est velit egestas dui. Lorem sed risus ultricies tristique nulla aliquet enim. Massa tempor nec feugiat nisl. Erat velit scelerisque in dictum non consectetur. Rhoncus urna neque viverra justo.
         Sed viverra ipsum nunc aliquet bibendum enim facilisis. Viverra nibh cras pulvinar mattis nunc sed. Et netus et malesuada fames ac turpis egestas maecenas pharetra.</p>
       </div>
+    </div>
     </div>
     <div class="col-sm-8">
       <h1 class="text-center">

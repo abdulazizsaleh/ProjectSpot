@@ -28,15 +28,15 @@ $row = mysqli_fetch_array($result);
           </tr>
           <tr>
             <th>age:</th>
-            <td>value</td>
+            <td></td>
           </tr>
           <tr>
             <th>gender:</th>
-            <td>value</td>
+            <td></td>
           </tr>
         </table>
       </div>
-    <p><a href="edit profile.html" class="btn btn-info">Edit</a></p>
+    <p><a href="./html/edit profile.html" class="btn btn-info">Edit</a></p>
   </div>
   <div class="row">
     <br><br><br><br>
