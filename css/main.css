@@ -30,3 +30,18 @@ body{
   font-size: 150%;
   color: rgb(16, 145, 228);
 }
+#contect a {
+  font-size: 130%;
+}
+#chatHeader{
+  background-color: white;
+  padding: 10px;
+  border-bottom: solid;
+}
+#chatRoom{
+  background-image: url(../image/backChat2.jpeg);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  padding-bottom:200px;
+  /* background-attachment: fixed; */
+}
