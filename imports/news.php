@@ -1,32 +1,19 @@
-<div class="col-sm-4">
-  <div class="thumbnail">
-    <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="...">
-    <div class="caption text-left">
-      <h3>news topic</h3>
-      <p>Imperdiet dui accumsan sit amet nulla facilisi morbi tempus iaculis. Vel facilisis volutpat est velit egestas dui. Lorem sed risus ultricies tristique nulla aliquet enim. Massa tempor nec feugiat nisl. </p>
-      <p class="text-right"><a href="#" class="btn btn-primary" role="button">Button</a></p>
-    </div>
-  </div>
-</div>
-
-<div class="col-sm-4">
-  <div class="thumbnail">
-    <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="...">
-    <div class="caption text-left">
-      <h3>news topic</h3>
-      <p>Imperdiet dui accumsan sit amet nulla facilisi morbi tempus iaculis. Vel facilisis volutpat est velit egestas dui. Lorem sed risus ultricies tristique nulla aliquet enim. Massa tempor nec feugiat nisl. </p>
-      <p class="text-right"><a href="#" class="btn btn-primary" role="button">Button</a></p>
-    </div>
-  </div>
-</div>
-
-<div class="col-sm-4">
-  <div class="thumbnail">
-    <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="...">
-    <div class="caption text-left">
-      <h3>news topic</h3>
-      <p>Imperdiet dui accumsan sit amet nulla facilisi morbi tempus iaculis. Vel facilisis volutpat est velit egestas dui. Lorem sed risus ultricies tristique nulla aliquet enim. Massa tempor nec feugiat nisl. </p>
-      <p class="text-right"><a href="#" class="btn btn-primary" role="button">Button</a></p>
-    </div>
-  </div>
-</div>
+<?php
+$qry = "SELECT * FROM news";
+$result = mysqli_query($db , $qry);
+for($i = 0; $i < 3 ;$i++){
+  $row = mysqli_fetch_array($result);
+  echo '<div class="col-sm-4">';
+  echo '<div class="thumbnail">';
+  echo '<div style="height: 200px;">';
+  echo '<img src="data:image;base64,'.base64_encode($row['image']).'" class="img-responsive" width="100%" higth="50%" />';
+  echo '</div>';
+  echo '<div class="caption text-left">';
+  echo '<h3>'.$row['topic'].'</h3>';
+  echo '<p>'.$row['content'].'</p>';
+  echo '<p class="text-right"><a href="#" class="btn btn-primary" role="button">Button</a></p>';
+  echo '</div>';
+  echo '</div>';
+  echo '</div>';
+}
+?>

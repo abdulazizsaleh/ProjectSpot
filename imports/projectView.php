@@ -9,7 +9,7 @@
     echo '<h4>rate: '.$row['rate'].'</h4>';
     echo '</div>';
     echo '<p> '.$row['brief'].'</p>';
-    echo '<h4> views: '.$row['rate'].' </h4>';
+    echo '<h4> views: '.$row['veiws'].' </h4>';
     echo '</div>';
   }
 ?>
