@@ -8,6 +8,7 @@ include 'system/init.php';
 </script>
 
 <?php
+$qry = "SELECT * FROM view";
 include 'imports/projectView.php';
 ?>
 

@@ -18,7 +18,7 @@ $project = $row[0];
         }else{
           $result = mysqli_query($db,"select title from project where projectID = '".$project."'");
           while($row = mysqli_fetch_array($result)){
-            echo '<a href="#" class="list-group-item list-group-item-action">'.$row[0].'</a>';
+            echo '<a href="./MySpecificProject.php?pID='.$project.'" class="list-group-item list-group-item-action">'.$row[0].'</a>';
           }
         }
         ?>
