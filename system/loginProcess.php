@@ -14,6 +14,7 @@
   if ($username != null && $password != null){
     if ($row['username']  == $username && $row['password'] == $password ){
       $_SESSION["username"] = $username;
+      $_SESSION["ID"] = $row['ID'];
       header("location:../account.php");
     }else{
       header("location:../login.php");

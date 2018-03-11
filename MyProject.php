@@ -9,8 +9,13 @@ include 'imports/navigation2.php';
   <div class="container">
     <!-- <div class="well"> -->
       <div class="list-group" id="projectsFont">
-        <a href="MySpecificProject.php" class="list-group-item list-group-item-action">project 1</a>
-        <a href="MySpecificProject.php" class="list-group-item list-group-item-action">project 2</a>
+        <?php
+        $sql = " SELECT title , project.projectID from project , account , project_account where project_account.accountID=account.ID AND project_account.projectID=project.projectID AND account.username = '".$username."'";
+        $result = mysqli_query($db,$sql);
+        while ($row = mysqli_fetch_array($result)){
+          echo '<a href="./MySpecificProject.php?pID='.$row['projectID'].'" class="list-group-item list-group-item-action">'.$row['title'].'</a>';
+        }
+        ?>
       </div>
     <!-- </div> -->
   </div>

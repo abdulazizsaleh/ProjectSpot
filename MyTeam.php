@@ -6,7 +6,7 @@ include 'imports/navigation2.php';
     document.getElementById('myTeam').className = "active";
 </script>
 <div class="container-fluid">
-  <div class="col-md-3 well well-sm list-group" id="contect">
+  <div class="col-md-3 well well-sm list-group text-center" id="contect" style="height:600px;">
 
     <a href="" class="list-group-item list-group-item-action">
       <img src="" alt="Group icon">
@@ -15,30 +15,32 @@ include 'imports/navigation2.php';
     </a>
 
     <a href="" class="list-group-item list-group-item-action">
-      <img src="" alt="Group icon">
+      <img src="" alt="user icon">
       usrename
       <p><small>type of member</small></p>
     </a>
 
     <a href="" class="list-group-item list-group-item-action">
-      <img src="" alt="Group icon">
+      <img src="" alt="user icon">
       usrename
       <p><small>type of member</small></p>
     </a>
 
     <a href="" class="list-group-item list-group-item-action">
-      <img src="" alt="Group icon">
+      <img src="" alt="user icon">
       usrename
       <p><small>type of member</small></p>
     </a>
 
-    <div style="padding-bottom:200px"></div>
+    <a href="html/invite member.html" class="btn btn-info btn-lg" id="InviteButton">
+      <span class="glyphicon glyphicon-plus"></span> Invite member
+    </a>
   </div>
-  <div class="col-md-9 well well-sm">
+  <div class="col-md-9 well well-sm" style="height:600px;">
     <div class="text-center" id="chatHeader">
       <h3>chat header</h3>
     </div>
-    <div class="well" id="chatRoom">
+    <div class="well" id="chatRoom" style="height:420px;">
       <div class="text-left">
         <div class="well">
 

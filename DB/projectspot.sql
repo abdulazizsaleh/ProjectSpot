@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 09 مارس 2018 الساعة 02:22
+-- Generation Time: 11 مارس 2018 الساعة 06:36
 -- إصدار الخادم: 10.1.30-MariaDB
 -- PHP Version: 7.2.1
 
@@ -42,18 +42,17 @@ CREATE TABLE `account` (
   `type` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
   `image` blob NOT NULL,
   `DOB` date NOT NULL,
-  `gender` varchar(1) COLLATE utf8_unicode_ci NOT NULL,
-  `projectID` int(11) NOT NULL DEFAULT '0'
+  `gender` varchar(1) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- إرجاع أو استيراد بيانات الجدول `account`
 --
 
-INSERT INTO `account` (`ID`, `username`, `frist_name`, `last_name`, `password`, `phone_num`, `email`, `university`, `faculty`, `dept`, `type`, `image`, `DOB`, `gender`, `projectID`) VALUES
-(1, 'a', 'frist', 'last', '1234', 0, 'a@gmail.com', 'kau', 'fcit', 'it', 's', '', '0000-00-00', '', 0),
-(111, 'aa', 'a', 'a', '11', 0, 'aalharbi1043@stu.kau.edu.sa', 'KAU', 'FCIT', 'IT', '11', '', '0000-00-00', '', 0),
-(1407659, 'abdulaziz.alharbi', 'abdulaziz', 'alharbi', '1234', 569713710, 'a.s.alharbi.16@gmail.com', 'KAU', 'FCIT', 'IT', 'student', '', '0000-00-00', '', 1);
+INSERT INTO `account` (`ID`, `username`, `frist_name`, `last_name`, `password`, `phone_num`, `email`, `university`, `faculty`, `dept`, `type`, `image`, `DOB`, `gender`) VALUES
+(1, 'a', 'frist', 'last', '1234', 0, 'a@gmail.com', 'kau', 'fcit', 'it', 's', '', '0000-00-00', ''),
+(111, 'aa', 'a', 'a', '11', 0, 'aalharbi1043@stu.kau.edu.sa', 'KAU', 'FCIT', 'IT', '11', '', '0000-00-00', ''),
+(1407659, 'abdulaziz.alharbi', 'abdulaziz', 'alharbi', '1234', 569713710, 'a.s.alharbi.16@gmail.com', 'KAU', 'FCIT', 'IT', 'student', '', '0000-00-00', '');
 
 -- --------------------------------------------------------
 
@@ -66,8 +65,7 @@ CREATE TABLE `files` (
   `title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `type` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
   `content` mediumtext COLLATE utf8_unicode_ci NOT NULL,
-  `modifierID` int(11) NOT NULL,
-  `last_modify` date NOT NULL,
+  `update_history` int(11) NOT NULL,
   `projectID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -113,7 +111,41 @@ CREATE TABLE `project` (
 --
 
 INSERT INTO `project` (`projectID`, `title`, `date`, `viewID`) VALUES
-(1, 'project test', '2018-03-06', 0);
+(1, 'project test', '2018-03-06', 0),
+(2, 'test', '2018-03-11', 0),
+(3, 'test 2', '2018-03-11', 0);
+
+-- --------------------------------------------------------
+
+--
+-- بنية الجدول `project_account`
+--
+
+CREATE TABLE `project_account` (
+  `accountID` int(11) NOT NULL,
+  `projectID` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- إرجاع أو استيراد بيانات الجدول `project_account`
+--
+
+INSERT INTO `project_account` (`accountID`, `projectID`) VALUES
+(1407659, 1),
+(1407659, 2);
+
+-- --------------------------------------------------------
+
+--
+-- بنية الجدول `update_history`
+--
+
+CREATE TABLE `update_history` (
+  `ID` int(11) NOT NULL,
+  `fileID` int(11) NOT NULL,
+  `modifierID` int(11) NOT NULL,
+  `date` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -174,6 +206,12 @@ ALTER TABLE `project`
   ADD PRIMARY KEY (`projectID`);
 
 --
+-- Indexes for table `update_history`
+--
+ALTER TABLE `update_history`
+  ADD PRIMARY KEY (`ID`);
+
+--
 -- Indexes for table `view`
 --
 ALTER TABLE `view`
@@ -199,7 +237,13 @@ ALTER TABLE `news`
 -- AUTO_INCREMENT for table `project`
 --
 ALTER TABLE `project`
-  MODIFY `projectID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `projectID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `update_history`
+--
+ALTER TABLE `update_history`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `view`

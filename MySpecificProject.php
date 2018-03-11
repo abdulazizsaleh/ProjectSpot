@@ -55,7 +55,7 @@ include 'imports/navigation2.php';
             </div>
           <!-- </li>
         </ul> -->
-        <div class="panel-body well-sm">
+        <div class="panel-body well-sm" style="height:222px;">
           <div class="list-group">
             <a href="#" class="list-group-item list-group-item-action">
               <span class="glyphicon glyphicon-folder-open"></span>
@@ -80,7 +80,7 @@ include 'imports/navigation2.php';
       <div class="panel-body">
         <p>Click project view to create or edit the view that appear to the public.</p>
         <br>
-        <p class="text-center"><a href="#" class="btn btn-primary" role="button">Project View</a></p>
+        <p class="text-center"><a href="html/Project View.html" class="btn btn-primary" role="button">Project View</a></p>
       </div>
     </div>
   </div>

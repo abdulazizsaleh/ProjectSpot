@@ -38,8 +38,8 @@ $row = mysqli_fetch_array($result);
       </div>
     <p><a href="./html/edit profile.html" class="btn btn-info">Edit</a></p>
   </div>
-  <div class="row">
-    <br><br><br><br>
-    <p><a href="" class="btn btn-success">Create project</a></p>
+  <div class="well text-center">
+    <br>
+    <p><a href="./create project.php" class="btn btn-success btn-lg">Create new project</a></p>
   </div>
 </div>

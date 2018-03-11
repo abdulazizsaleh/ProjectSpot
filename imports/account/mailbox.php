@@ -1,6 +1,6 @@
 <div class="row text-center">
   <div class="col-md-7">
-    <div class="well">
+    <div class="well" style="height:385px;">
       <p><a href="./MailBox.php" class="btn btn-danger">Mail Box</a></p>
       <div class="list-group text-left">
         <a href="#" class="list-group-item list-group-item-action">

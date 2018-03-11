@@ -1,5 +1,5 @@
 <div class="col-md-5">
-  <div class="well">
+  <div class="well" style="height:385px;">
     <p><a href="./MyTeam.php" class="btn btn-warning">Team Members</a></p>
     <div class="list-group text-left">
       <a href="#" class="list-group-item list-group-item-action">

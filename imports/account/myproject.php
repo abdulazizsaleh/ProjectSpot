@@ -1,25 +1,15 @@
 
-<?php
-$result = mysqli_query($db,"select projectID from account where username = '".$username."'");
-$row = mysqli_fetch_array($result);
-$project = $row[0];
-?>
-
-
 <div class="col-md-9">
 <div class="row">
   <div class="col-md-12">
-    <div class="well">
+    <div class="well" style="height:200px;">
       <p><a href="./MyProject.php" class="btn btn-primary">My Project</a></p>
       <div class="list-group">
         <?php
-        if ($project == 0){
-          echo '<h5 class="list-group-item list-group-item-action" >empty</h5>';
-        }else{
-          $result = mysqli_query($db,"select title from project where projectID = '".$project."'");
-          while($row = mysqli_fetch_array($result)){
-            echo '<a href="./MySpecificProject.php?pID='.$project.'" class="list-group-item list-group-item-action">'.$row[0].'</a>';
-          }
+        $sql = " SELECT title , project.projectID from project , account , project_account where project_account.accountID=account.ID AND project_account.projectID=project.projectID AND account.username = '".$username."'";
+        $result = mysqli_query($db,$sql);
+        while ($row = mysqli_fetch_array($result)){
+          echo '<a href="./MySpecificProject.php?pID='.$row['projectID'].'" class="list-group-item list-group-item-action">'.$row['title'].'</a>';
         }
         ?>
       </div>
