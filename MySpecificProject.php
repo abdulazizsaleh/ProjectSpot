@@ -55,7 +55,7 @@ include 'imports/navigation2.php';
             </div>
           <!-- </li>
         </ul> -->
-        <div class="panel-body well-sm" style="height:222px;">
+        <div class="panel-body well-sm file-container">
           <div class="list-group">
             <a href="#" class="list-group-item list-group-item-action">
               <span class="glyphicon glyphicon-folder-open"></span>

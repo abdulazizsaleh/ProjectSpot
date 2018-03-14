@@ -1,76 +1,29 @@
 <?php
 include 'imports/head.php';
 include 'imports/navigation2.php';
+require_once 'system/init.php';
 ?>
 <script type="text/javascript">
     document.getElementById('myTeam').className = "active";
 </script>
+
+<!-- left column -->
 <div class="container-fluid">
-  <div class="col-md-3 well well-sm list-group text-center" id="contect" style="height:600px;">
+  <div class="col-md-3 well well-sm list-group text-center" style="height:600px;">
 
-    <a href="" class="list-group-item list-group-item-action">
-      <img src="" alt="Group icon">
-      Group name
-      <p><small>contacts names</small></p>
-    </a>
+    <?php
+     include 'imports/group.php';
+     include 'imports/member.php';
+    ?>
 
-    <a href="" class="list-group-item list-group-item-action">
-      <img src="" alt="user icon">
-      usrename
-      <p><small>type of member</small></p>
-    </a>
-
-    <a href="" class="list-group-item list-group-item-action">
-      <img src="" alt="user icon">
-      usrename
-      <p><small>type of member</small></p>
-    </a>
-
-    <a href="" class="list-group-item list-group-item-action">
-      <img src="" alt="user icon">
-      usrename
-      <p><small>type of member</small></p>
-    </a>
-
+    <!-- link to invite member -->
     <a href="html/invite member.html" class="btn btn-info btn-lg" id="InviteButton">
       <span class="glyphicon glyphicon-plus"></span> Invite member
     </a>
   </div>
-  <div class="col-md-9 well well-sm" style="height:600px;">
-    <div class="text-center" id="chatHeader">
-      <h3>chat header</h3>
-    </div>
-    <div class="well" id="chatRoom" style="height:420px;">
-      <div class="text-left">
-        <div class="well">
 
-        </div>
-      </div>
-      <div class="text-right">
-        <div class="well">
-
-        </div>
-      </div>
-    </div>
-    <div class="well well-sm">
-      <div class="row">
-        <form action="">
-          <div class="col-xs-2">
-            <input name="attachment" type="file" class="">
-          </div>
-          <div class="col-xs-8">
-            <input type="text" name="message" placeholder="enter your text" value="" class="form-control">
-          </div>
-          <input type="text" name="receiver" value="receiver username" hidden>
-          <input type="text" name="sender" value="sender username" hidden>
-          <input type="datetime-local" name="date" value="" hidden>
-          <div class="col-xs-2">
-            <button type="submit" name="send" class="btn btn-default"><span class="glyphicon glyphicon-send"></span></button>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
+  <!-- right column -->
+  <?php include 'imports/chatBox.php'; ?>
 </div>
 
 

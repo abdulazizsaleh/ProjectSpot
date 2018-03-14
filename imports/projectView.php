@@ -1,5 +1,4 @@
 <?php
-  //$qry = "SELECT * FROM view";
   $result = mysqli_query($db , $qry);
   while($row = mysqli_fetch_array($result)) :?>
   <div class="container well">
