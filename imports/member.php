@@ -8,11 +8,11 @@ while($chatIDs = mysqli_fetch_array($result)):
   while ($row = mysqli_fetch_array($result2)):
     if( $row['ID'] != $_SESSION["ID"]){
 ?>
-<a href="#chatBox?chatID=<?= $chatID ?>" class="list-group-item list-group-item-action contact">
+<button onclick="chatIDFun(<?= $chatID ?>)" class="list-group-item list-group-item-action contact">
   <img src="data:image;base64,<?= base64_encode($row['image'])?>" class="img-circle user-image" >
   <div class="text-left">
     <h4><?= $row['username'] ?></h4>
     <small><?= $row['type']?></small>
   </div>
-</a>
+</button>
 <?php } endwhile; endwhile;?>

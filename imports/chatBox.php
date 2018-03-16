@@ -2,51 +2,141 @@
   <div class="text-center chatHeader">
     <h3>chat header</h3>
   </div>
-  <div class="chatBox well"><!-- chatBox -->
+  <div id="chatContainer" class="chatBox well"><!-- chatBox -->
 
-    <div class="chat self">
+    <!-- <div class="chat self">
       <img src="image/newton.jpg" class="img-circle user-image" >
-      <p class="message">I'm Newton</p>
+      <p class="message">
     </div>
 
     <div class="chat friend">
       <img src="image/Einstein.jpg" class="img-circle user-image" >
-      <p class="message">I'm Einstein</p>
-    </div>
-
-    <div class="chat self">
-      <img src="image/newton.jpg" class="img-circle user-image" >
       <p class="message">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Volutpat est velit egestas dui id ornare. Neque aliquam vestibulum morbi blandit cursus risus at ultrices mi. Non nisi est sit amet facilisis magna etiam tempor. Arcu ac tortor dignissim convallis aenean et tortor. In arcu cursus euismod quis viverra nibh cras pulvinar. Lacus vestibulum sed arcu non. Nulla facilisi nullam vehicula ipsum. Vel elit scelerisque mauris pellentesque pulvinar pellentesque habitant morbi tristique. Ac turpis egestas integer eget aliquet nibh praesent tristique. Venenatis cras sed felis eget velit. Ut pharetra sit amet aliquam id diam maecenas ultricies. Ultrices vitae auctor eu augue ut lectus arcu. Ligula ullamcorper malesuada proin libero nunc consequat interdum. Sit amet nisl suscipit adipiscing bibendum est ultricies integer quis. Diam sit amet nisl suscipit adipiscing bibendum est. Condimentum vitae sapien pellentesque habitant morbi tristique senectus et netus.
-      </p>
-    </div>
-
-    <div class="chat self">
-      <img src="image/newton.jpg" class="img-circle user-image" >
-      <p class="message">I'm Newton</p>
-    </div>
-
-    <div class="chat friend">
-      <img src="image/Einstein.jpg" class="img-circle user-image" >
-      <p class="message">I'm Einstein</p>
-    </div>
-
-    <div class="chat self">
-      <img src="image/newton.jpg" class="img-circle user-image" >
-      <p class="message">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Volutpat est velit egestas dui id ornare. Neque aliquam vestibulum morbi blandit cursus risus at ultrices mi. Non nisi est sit amet facilisis magna etiam tempor. Arcu ac tortor dignissim convallis aenean et tortor. In arcu cursus euismod quis viverra nibh cras pulvinar. Lacus vestibulum sed arcu non. Nulla facilisi nullam vehicula ipsum. Vel elit scelerisque mauris pellentesque pulvinar pellentesque habitant morbi tristique. Ac turpis egestas integer eget aliquet nibh praesent tristique. Venenatis cras sed felis eget velit. Ut pharetra sit amet aliquam id diam maecenas ultricies. Ultrices vitae auctor eu augue ut lectus arcu. Ligula ullamcorper malesuada proin libero nunc consequat interdum. Sit amet nisl suscipit adipiscing bibendum est ultricies integer quis. Diam sit amet nisl suscipit adipiscing bibendum est. Condimentum vitae sapien pellentesque habitant morbi tristique senectus et netus.
-      </p>
-    </div>
+    </div> -->
 
   </div>
   <div class="well well-sm">
-      <form class="chat-form" action="">
+      <div class="chat-form" action="">
         <!-- <input name="attachment" type="file"> -->
-        <textarea name="message" placeholder="enter your text" value="" class="form-control"></textarea>
+        <textarea id="textIn" name="message" placeholder="enter your text" value="" class="form-control"></textarea>
         <input type="text" name="receiver" value="receiver username" hidden>
         <input type="text" name="sender" value="sender username" hidden>
         <input type="datetime-local" name="date" value="" hidden>
-        <button type="submit" name="send" class="btn btn-default"><span class="glyphicon glyphicon-send"></span></button>
-      </form>
+        <button id="myBtn"onclick="add()" name="send" class="btn btn-default"><span class="glyphicon glyphicon-send"></span></button>
+      </div>
   </div>
 </div>
+
+<script type="text/javascript">
+  var container = document.getElementById('chatContainer');
+  var chatID , objReq, myJson, xmlhttp, myObj;
+  var textInput = document.getElementById('textIn');
+
+  function chatIDFun(ID) {
+    redraw();
+    chatID = ID;
+    objReq = {
+      "table":"message",
+      "chatID":chatID,
+      "limit":30
+    }
+    myJson = JSON.stringify(objReq);
+    xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        myObj = JSON.parse(this.responseText);
+        for (message of myObj){
+          var sender = message.sender;
+          var time = message.time;
+          var content = message.content;
+          create(sender,time,content);
+        }
+      }
+    };
+    xmlhttp.open("GET", "./system/messageJson.php?x=" + myJson, true);
+    xmlhttp.send();
+  }
+
+  function add() {
+    var content = textInput.value;
+    console.log(content);
+    textInput.value= null;
+    var sender = <?= $_SESSION['ID'] ?>;
+    var time = Date();
+    store(sender,time,content);
+  }
+  var insertXmlhttp,insertXmlhttp;
+  function store(sender,time,content){//store in the database
+    console.log(chatID);
+
+    var message ={
+      "sender":sender,
+      "content":content,
+      "chatID":chatID
+    }
+    insertJson = JSON.stringify(message);
+    console.log(insertJson);
+    insertXmlhttp = new XMLHttpRequest();
+    insertXmlhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+          var m = this.responseText;
+          console.log(m);
+          create(sender,time,content);
+        }
+    };
+    insertXmlhttp.open("POST", "./system/insertMessageJson.php", true);
+    insertXmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    insertXmlhttp.send("x=" + insertJson);
+  }
+
+  function create(sender,time,content){
+
+    var chat = document.createElement("div");
+    if (sender == <?= $_SESSION['ID'] ?>){
+      chat.className = "chat self";
+    }else {
+      chat.className = "chat friend";
+    }
+
+    var user_img = document.createElement("img");
+    user_img.className = "img-circle user-image";
+
+    user_img.src="image/Einstein.jpg";
+    var msgP = document.createElement("p");
+    msgP.className = "message";
+    msgP.appendChild(document.createTextNode(content));
+    chat.appendChild(user_img);
+    chat.appendChild(msgP);
+    container.appendChild(chat);
+  }
+
+  function redraw(){
+    while (container.firstChild) {
+      container.removeChild(container.firstChild);
+    }
+  }
+ // function getUserImg(ID){
+ //    console.log("1 "+ID);
+ //    var img;
+ //    var senderID = {"ID":ID};
+ //    var senderIdJson = JSON.stringify(senderID);
+ //    var httpImg = new XMLHttpRequest();
+ //    httpImg.onreadystatechange = function(){
+ //      if (this.readyState == 4 && this.status == 200) {
+ //        console.log("3 "+this.responseText);
+ //        // var ObImg = JSON.parse(this.responseText) ;
+ //        // img = ObImg.image;
+ //        // console.log("2 "+src);
+ //      }
+ //    }
+ //    httpImg.open("GET", "./system/userImgJson.php?Im=" + senderIdJson, true);
+ //    httpImg.send();
+ //    console.log("4 "+img);
+ //    return img;
+ //  }
+
+
+
+
+
+</script>
