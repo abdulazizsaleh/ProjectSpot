@@ -32,42 +32,40 @@ $update_count = mysqli_query($db,"UPDATE view SET veiws = $new_count WHERE ID = 
 
     <span id="projectFooter">
       <h4> views: <?= $new_count; ?></h4>
-      <div onclick="">
+      <div onclick="dispalyComment();">
         <span class="glyphicon glyphicon-chevron-down"></span>
         comments
       </div>
     </span>
 
 
-    <div class="well-sm" id="commentContainer">
-      <div class="panel panel-default comment">
-        <div class="panel-heading">username of the sender</div>
-        <div class="panel-body">
-          comment
+    <div id="comment">
+      <div class="well-sm">
+        <div id="commentForm" action="">
+          <!-- <input name="attachment" type="file"> -->
+          <textarea id="textIn" name="message" placeholder="enter your text" value="" class="form-control"></textarea>
+          <input type="text" name="sender" value="sender username" hidden>
+          <input type="datetime-local" name="date" value="" hidden>
+          <button id="myBtn"onclick="add()" name="send" class="btn btn-default"><span class="glyphicon glyphicon-send"></span></button>
         </div>
+      </div>
+      <div class="well-sm" id="commentContainer">
+
+        <!-- <div class="panel panel-default comment">
+          <div class="panel-heading">username of the sender</div>
+          <div class="panel-body">
+            comment
+          </div>
+        </div> -->
+
       </div>
 
-      <div class="panel panel-default comment">
-        <div class="panel-heading">username of the sender</div>
-        <div class="panel-body">
-          comment
-        </div>
-      </div>
-    </div>
-    <div class="well-sm">
-      <div id="commentForm" action="">
-        <!-- <input name="attachment" type="file"> -->
-        <textarea id="textIn" name="message" placeholder="enter your text" value="" class="form-control"></textarea>
-        <input type="text" name="sender" value="sender username" hidden>
-        <input type="datetime-local" name="date" value="" hidden>
-        <button id="myBtn"onclick="add()" name="send" class="btn btn-default"><span class="glyphicon glyphicon-send"></span></button>
-      </div>
     </div>
   </div>
 
   <div class="col-sm-3">
-    <div class="well">
-      <img src="image/newton.jpg" class="img-circle team-image" >
+    <div class="well text-center">
+      <img src="image/newton.jpg" class="img-circle team-image">
       <h4>University : kau</h4>
       <h4>Faculty : FCIT</h4>
       <h4>year : 2017</h4>
@@ -81,8 +79,50 @@ $update_count = mysqli_query($db,"UPDATE view SET veiws = $new_count WHERE ID = 
 <script type="text/javascript">
   var container = document.getElementById('commentContainer');
   var textInput = document.getElementById('textIn');
+  var comment = document.getElementById('comment');
+  comment.style.display = 'none';
   var projectID = <?= $vID ?>;
+
+  function projectComment(){
+    redraw();
+    var objReq = {
+      "projectID":projectID
+    }
+    myJson = JSON.stringify(objReq);
+    xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        myObj = JSON.parse(this.responseText);
+        console.log(myObj);
+        for (message of myObj){
+          //var sender = message.sender;
+          //var time = message.time;
+          var content = message.content;
+          create(content);
+        }
+      }
+    };
+    xmlhttp.open("GET", "./system/commentRetrive.php?x=" + myJson, true);
+    xmlhttp.send();
+  }
+
+  function redraw(){
+    while (container.firstChild) {
+      container.removeChild(container.firstChild);
+    }
+  }
+
+  function dispalyComment(){
+    if(comment.style.display == 'none'){
+      comment.style.display = 'block';
+      projectComment();
+    }else{
+      comment.style.display = 'none'
+    }
+  }
+
   function add(){
+
     var content = textInput.value;
     textInput.value= null;
     var newComment = {
@@ -116,8 +156,7 @@ $update_count = mysqli_query($db,"UPDATE view SET veiws = $new_count WHERE ID = 
     panelBody.appendChild(document.createTextNode(content));
     panel.appendChild(panelHeading);
     panel.appendChild(panelBody);
-    container.appendChild(panel);
-
+    container.insertAdjacentElement('afterbegin', panel)
   }
 </script>
 
