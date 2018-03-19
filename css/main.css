@@ -106,3 +106,42 @@ body{
 .contact div{
   margin-left: 15px;
 }
+#projectFooter{
+  display: flex;
+  align-items: flex-start;
+  border-top: solid;
+  width: 100%;
+  margin-top: 10px;
+}
+#projectFooter > h4 {
+  color: rgb(52, 150, 228);
+}
+#projectFooter > div {
+  cursor: pointer;
+  padding: 10px;
+  position: absolute;
+  right: 45%;
+}
+#commentForm{
+  position: relative;
+  bottom: 0;
+  display: flex;
+  align-items: flex-start;
+}
+#commentForm textarea{
+  width: 97%;
+  height: 35px;
+  resize: none;
+}
+.comment{
+
+
+}
+#commentContainer{
+  background-color: white;
+}
+.team-image{
+  height: 150px;
+  width: 150px;
+  display: flex;
+}

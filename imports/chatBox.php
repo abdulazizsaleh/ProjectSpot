@@ -19,7 +19,6 @@
       <div class="chat-form" action="">
         <!-- <input name="attachment" type="file"> -->
         <textarea id="textIn" name="message" placeholder="enter your text" value="" class="form-control"></textarea>
-        <input type="text" name="receiver" value="receiver username" hidden>
         <input type="text" name="sender" value="sender username" hidden>
         <input type="datetime-local" name="date" value="" hidden>
         <button id="myBtn"onclick="add()" name="send" class="btn btn-default"><span class="glyphicon glyphicon-send"></span></button>
@@ -29,7 +28,7 @@
 
 <script type="text/javascript">
   var container = document.getElementById('chatContainer');
-  var chatID , objReq, myJson, xmlhttp, myObj;
+  var chatID , objReq, myJson, xmlhttp, myObj ;
   var textInput = document.getElementById('textIn');
 
   function chatIDFun(ID) {
@@ -97,11 +96,14 @@
     }else {
       chat.className = "chat friend";
     }
-
+    //var imgs = "";
+    //imgs = getUserImg(sender);
+    //console.log("under getUserImg(sender);"+imgs);
     var user_img = document.createElement("img");
     user_img.className = "img-circle user-image";
-
+    // user_img.src="data:image;base64,"+img;
     user_img.src="image/Einstein.jpg";
+    //user_img.src=imgs;
     var msgP = document.createElement("p");
     msgP.className = "message";
     msgP.appendChild(document.createTextNode(content));
@@ -115,26 +117,26 @@
       container.removeChild(container.firstChild);
     }
   }
- // function getUserImg(ID){
- //    console.log("1 "+ID);
- //    var img;
- //    var senderID = {"ID":ID};
- //    var senderIdJson = JSON.stringify(senderID);
- //    var httpImg = new XMLHttpRequest();
- //    httpImg.onreadystatechange = function(){
- //      if (this.readyState == 4 && this.status == 200) {
- //        console.log("3 "+this.responseText);
- //        // var ObImg = JSON.parse(this.responseText) ;
- //        // img = ObImg.image;
- //        // console.log("2 "+src);
- //      }
- //    }
- //    httpImg.open("GET", "./system/userImgJson.php?Im=" + senderIdJson, true);
- //    httpImg.send();
- //    console.log("4 "+img);
- //    return img;
- //  }
 
+ function getUserImg(ID){
+   var imgs;
+    var senderID = {"ID":ID};
+    var senderIdJson = JSON.stringify(senderID);
+    var httpImg = new XMLHttpRequest();
+    httpImg.onreadystatechange = function(){
+      if (this.readyState == 4 && this.status == 200) {
+        console.log(imgs = this.responseText);
+        console.log(imgs);
+      }
+    }
+    httpImg.open("GET", "./system/userImgJson.php?Im=" + senderIdJson, true);
+    httpImg.send();
+    return imgs;
+  }
+
+
+  var imgss = getUserImg(1234);
+  console.log(imgss);
 
 
 
