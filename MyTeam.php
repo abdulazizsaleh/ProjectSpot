@@ -17,7 +17,7 @@ require_once 'system/init.php';
     ?>
 
     <!-- link to invite member -->
-    <a href="html/invite member.html" class="btn btn-info btn-lg" id="InviteButton">
+    <a href="invite.php" class="btn btn-info btn-lg" id="InviteButton">
       <span class="glyphicon glyphicon-plus"></span> Invite member
     </a>
   </div>
