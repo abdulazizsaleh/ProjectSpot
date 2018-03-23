@@ -150,3 +150,24 @@ body{
   background-color: rgb(163, 210, 241);
   cursor: pointer;
 }
+.mailPagination{
+
+}
+
+.noDecoration{
+  text-decoration: none;
+}
+#msgInfo{
+  margin-left: 10px;
+}
+#msgTitle{
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+.briefMsgs{
+  display: flex;
+  align-items: flex-start;
+}
+.briefMsgs span{
+  padding : 10px;
+}

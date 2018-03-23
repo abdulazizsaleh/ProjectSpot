@@ -15,6 +15,7 @@
     if ($row['username']  == $username && $row['password'] == $password ){
       $_SESSION["username"] = $username;
       $_SESSION["ID"] = $row['ID'];
+      $_SESSION["email"] = $row['email'];
       header("location:../account.php");
     }else{
       header("location:../login.php");
