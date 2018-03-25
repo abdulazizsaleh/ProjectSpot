@@ -31,13 +31,13 @@
   var chatID , objReq, myJson, xmlhttp, myObj ;
   var textInput = document.getElementById('textIn');
 
-  function chatIDFun(ID) {
+  function chatIDFun(Id) {
     redraw();
-    chatID = ID;
+    chatID = Id;
     objReq = {
-      "table":"message",
-      "chatID":chatID,
-      "limit":30
+      table:"message",
+      chatID:chatID,
+      limit:30
     }
     myJson = JSON.stringify(objReq);
     xmlhttp = new XMLHttpRequest();
@@ -69,9 +69,9 @@
     console.log(chatID);
 
     var message ={
-      "sender":sender,
-      "content":content,
-      "chatID":chatID
+      sender:sender,
+      content:content,
+      chatID:chatID
     }
     insertJson = JSON.stringify(message);
     console.log(insertJson);
@@ -96,14 +96,11 @@
     }else {
       chat.className = "chat friend";
     }
-    //var imgs = "";
-    //imgs = getUserImg(sender);
-    //console.log("under getUserImg(sender);"+imgs);
+
     var user_img = document.createElement("img");
     user_img.className = "img-circle user-image";
-    // user_img.src="data:image;base64,"+img;
-    user_img.src="image/Einstein.jpg";
-    //user_img.src=imgs;
+    user_img.src = "data:image;base64,"+getUserImg(sender);
+    //user_img.src="image/Einstein.jpg";
     var msgP = document.createElement("p");
     msgP.className = "message";
     msgP.appendChild(document.createTextNode(content));
@@ -118,25 +115,21 @@
     }
   }
 
- function getUserImg(ID){
+ function getUserImg(Id){
    var imgs;
-    var senderID = {"ID":ID};
+    var senderID = {ID:Id};
     var senderIdJson = JSON.stringify(senderID);
     var httpImg = new XMLHttpRequest();
     httpImg.onreadystatechange = function(){
       if (this.readyState == 4 && this.status == 200) {
-        console.log(imgs = this.responseText);
-        console.log(imgs);
+        imgs = this.responseText;
       }
     }
-    httpImg.open("GET", "./system/userImgJson.php?Im=" + senderIdJson, true);
+    httpImg.open("GET", "./system/userImgJson.php?Im=" + senderIdJson, false);
     httpImg.send();
     return imgs;
   }
 
-
-  var imgss = getUserImg(1234);
-  console.log(imgss);
 
 
 
