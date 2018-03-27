@@ -3,7 +3,7 @@ $result = mysqli_query($db , "select chatID from chat_account where accountID = 
 while($chatIDs = mysqli_fetch_array($result)):
   $chatID = $chatIDs[0];
   $sql = "select * from account, chat_account WHERE chat_account.accountID =account.ID
-  and chat_account.chatID = ".$chatID." and account.ID <>".$_SESSION["ID"];
+  and chat_account.chatID = ".$chatID." and account.ID <>".$_SESSION["ID"]." and chat_type = 0";
   $result2 = mysqli_query($db , $sql);
   while ($row = mysqli_fetch_array($result2)):
     if( $row['ID'] != $_SESSION["ID"]){
