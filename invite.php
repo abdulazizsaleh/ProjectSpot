@@ -6,19 +6,19 @@ include 'imports/navigation2.php';
 <div class="container">
 
   <form class="form" action="system/invitation.php" method="post">
-    <div class="form-group">
-    <label for="">Invite by</label>
-    <select class="form-control" id="inviteType" name="inviteType">
-      <option value="username">username</option>
-      <option value="phoneNumber">Phone number</option>
-      <option value="universityID">university ID</option>
-    </select>
-  </div>
-  <div class="form-group">
-    <label for="" id="mylabel"value>username</label>
-    <input id="myInput" type="text" class="form-control" placeholder= "Enter the username" name="identifier" required>
-  </div>
-  <input type="submit" value="send" class="btn btn-success">
+      <div class="form-group">
+        <label for="">Invite by</label>
+        <select class="form-control" id="inviteType" name="inviteType">
+          <option value="username">username</option>
+          <option value="phoneNumber">Phone number</option>
+          <option value="universityID">university ID</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="" id="mylabel"value>username</label>
+        <input id="myInput" type="text" class="form-control" placeholder= "Enter the username" name="identifier" required>
+      </div>
+      <input type="submit" value="send" class="btn btn-success">
   </form>
 </div>
 
