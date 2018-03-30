@@ -1,3 +1,32 @@
+<html>
+<head>
+<script src="jquery.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#searchbox").on('keyup',function () {
+            var key = $(this).val();
+ 
+            $.ajax({
+                url:'search.php',
+                type:'GET',
+                data:'keyword='+key,
+                beforeSend:function () {
+                    $("#results").slideUp('fast');
+                },
+                success:function (data) {
+                    $("#results").html(data);
+                    $("#results").slideDown('fast');
+                }
+            });
+        });
+    });
+</script>
+
+
+</head>
+
+
+
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -11,9 +40,10 @@
 
 
     <ul class="nav navbar-nav navbar-right">
-      <form class="navbar-form navbar-left" action="/action_page.php">
+      <form class="navbar-form navbar-left" >
         <div class="input-group">
-          <input type="text" class="form-control" placeholder="Search" name="search">
+          <input type="text" class="form-control" placeholder="Search" name="keyword" id="searchbox">
+		  <div id="results"></div>
           <div class="input-group-btn">
             <button class="btn btn-default" type="submit">
               <i class="glyphicon glyphicon-search"></i>
@@ -26,3 +56,5 @@
       </ul>
     </div>
 </nav>
+
+</html>
