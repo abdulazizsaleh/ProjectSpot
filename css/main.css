@@ -171,3 +171,10 @@ body{
 .briefMsgs span{
   padding : 10px;
 }
+.team-member a{
+  display: flex;
+  width: 100%;
+}
+.team-member div{
+  margin-left: 15px;
+}

@@ -11,7 +11,7 @@ while($chatIDs = mysqli_fetch_array($result)):
 <button onclick="chatIDFun(<?= $chatID ?>)" class="list-group-item list-group-item-action contact">
   <img src="data:image;base64,<?= base64_encode($row['image'])?>" class="img-circle user-image" >
   <div class="text-left">
-    <h4><?= $row['username'] ?></h4>
+    <h4><?= $row['frist_name'].' '.$row['last_name'] ?></h4>
     <small><?= $row['type']?></small>
   </div>
 </button>
