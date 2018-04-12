@@ -80,7 +80,7 @@ include 'imports/navigation2.php';
       <div class="panel-body">
         <p>Click project view to create or edit the view that appear to the public.</p>
         <br>
-        <p class="text-center"><a href="html/Project View.html" class="btn btn-primary" role="button">Project View</a></p>
+        <p class="text-center"><a href="createView.php" class="btn btn-primary" role="button">Project View</a></p>
       </div>
     </div>
   </div>
