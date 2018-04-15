@@ -36,7 +36,7 @@ $row = mysqli_fetch_array($result);
           </tr>
         </table>
       </div>
-    <p><a href="./html/edit profile.html" class="btn btn-info">Edit</a></p>
+    <p><a href="./editAcc.php" class="btn btn-info">Edit</a></p>
   </div>
   <div class="well text-center">
     <br>
