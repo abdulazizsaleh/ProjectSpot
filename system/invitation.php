@@ -5,6 +5,9 @@ session_start();
 $typeOfIdentifier = $_POST['inviteType'];
 $identifier = $_POST['identifier'];
 
+$typeOfIdentifier = mysqli_real_escape_string($db,$typeOfIdentifier);
+$identifier = mysqli_real_escape_string($db,$identifier);
+
 if($typeOfIdentifier == "username"){
   $sql ="select email from account where ".$typeOfIdentifier." = '".$identifier."'";
 }elseif ($typeOfIdentifier == "phoneNumber") {
