@@ -23,7 +23,7 @@ $update_count = mysqli_query($db,"UPDATE view SET veiws = $new_count WHERE ID = 
 ?>
 <div class="container-fluid">
   <div class="well col-sm-9">
-    <img src="data:image;base64,<?= base64_encode($row['pic'])?>" class="img-responsive" style="width:100%"/>
+    <img src="data:image;base64,<?= base64_encode($row['pic'])?>" class="img-responsive" style="width:100%;max-height: 400px;"/>
     <div class="">
       <h3><?= $row['title']?></h3>
       <h4>rate:<?= $row['rate']?></h4>

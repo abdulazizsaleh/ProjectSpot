@@ -3,7 +3,7 @@
   while($row = mysqli_fetch_array($result)) :?>
   <div class="container well">
     <a href = "./projectViewMoreDetail.php?vID=<?= $row['ID'] ?>">
-      <img src="data:image;base64,<?= base64_encode($row['pic'])?>" class="img-responsive" style="width:100%"/>
+      <img src="data:image;base64,<?= base64_encode($row['pic'])?>" class="img-responsive" style="width:100%;max-height: 400px;"/>
     </a>
       <div class="">
         <h3><?= $row['title']?></h3>
