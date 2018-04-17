@@ -1,7 +1,7 @@
 <?php
   require_once 'system/init.php';
-  session_start();
-  $username = $_SESSION["username"];
+   session_start();
+   $username = $_SESSION["username"];
 ?>
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
@@ -17,7 +17,6 @@
 
 
     <ul class="nav navbar-nav navbar-right">
-      <li><a href="#"><span class="glyphicon glyphicon-user"></span> <?php echo $username ?> </a></li>
 
       <form class="navbar-form navbar-left" action="/action_page.php">
         <div class="input-group">
@@ -30,8 +29,8 @@
         </div>
       </form>
 
-      <!-- <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li> -->
-      <!-- <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li> -->
+      <li><a href="#"><span class="glyphicon glyphicon-user"></span> <?php echo $username; ?> </a></li>
+      <li><a href="/ProjectSpot/system/signout.php"><span class="glyphicon glyphicon-off"></span> sign out</a></li>
       </ul>
     </div>
 </nav>

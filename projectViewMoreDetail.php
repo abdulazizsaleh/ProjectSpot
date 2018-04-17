@@ -10,7 +10,7 @@ if(isset($_GET['vID'])){
 }
 
 
-// added cookies below to prevent duplicate views 
+// added cookies below to prevent duplicate views
 
 if (!isset($_COOKIE['counter'])) {
    setcookie('counter',0);
@@ -28,8 +28,8 @@ if (isset($_COOKIE['counter']) && $_COOKIE['counter'] == 0) {
    $new_count = $old_count + 1;
    $update_count = mysqli_query($db,"UPDATE view SET veiws = $new_count WHERE ID = ".$vID);
 
- 
-  
+
+
 } else {
    echo 'you have already visited this page';
 }
@@ -49,8 +49,8 @@ $post_rating = $_POST['rating'];
 $find_data = mysqli_query($db , "SELECT * FROM view WHERE ID = 3");
 
 while($row2 = mysqli_fetch_array($find_data)){
-	
-	
+
+
 	$current_rating = $row2['rate'];
 	$current_hits = $row2['hits'];
 
@@ -70,7 +70,9 @@ $update_rating = mysqli_query($db , "UPDATE view SET rate = ".$new_rating." WHER
 ?>
 <div class="container-fluid">
   <div class="well col-sm-9">
-    <img src="data:image;base64,<?= base64_encode($row['pic'])?>" class="img-responsive" style="width:100%;max-height: 400px;"/>
+    <div class="image-background">
+      <img src="data:image;base64,<?= base64_encode($row['pic'])?>" class="img-responsive center"/>
+    </div>
     <div class="">
       <h3><?= $row['title']?></h3>
 	  <form action="ratess.php" method="POST">
@@ -121,109 +123,27 @@ $update_rating = mysqli_query($db , "UPDATE view SET rate = ".$new_rating." WHER
         </div> -->
 
       </div>
-
     </div>
   </div>
-
-  <div class="col-sm-3">
+  <?php include 'system\getProjectInfoByVID.php'; ?>
+  <div class="col-sm-3"> <!--  right column that contain project owner info  -->
     <div class="well text-center">
-      <img src="image/newton.jpg" class="img-circle team-image">
-      <h4>University : kau</h4>
-      <h4>Faculty : FCIT</h4>
-      <h4>year : 2017</h4>
-      <h4>team : Khalid , Ahmed</h4>
-      <h4>Rate : </h4>
+      <img src="<?php getUniversityLogo($vID); ?>" class="img-circle team-image">
+      <h4>University : <?php getUniversityName($vID); ?></h4>
+      <h4>Faculty : <?php getDeptName($vID); ?></h4>
+      <h4>Date : <?php getProjectDate($vID); ?></h4>
+      <h4 style="padding-bottom:0px;margin-bottom:0px">Team</h4>
+        <p><?php getTeamMember($vID); ?></p>
+      <!-- <h4>Rate : </h4> -->
     </div>
   </div>
 
 </div>
 
+<script type="text/javascript" src="system/js/comments.js"></script>
 <script type="text/javascript">
-  var container = document.getElementById('commentContainer');
-  var textInput = document.getElementById('textIn');
-  var comment = document.getElementById('comment');
-  comment.style.display = 'none';
-  var projectID = <?= $vID ?>;
-
-  function projectComment(){
-    redraw();
-    var objReq = {
-      "projectID":projectID
-    }
-    myJson = JSON.stringify(objReq);
-    xmlhttp = new XMLHttpRequest();
-    xmlhttp.onreadystatechange = function() {
-      if (this.readyState == 4 && this.status == 200) {
-        myObj = JSON.parse(this.responseText);
-        console.log(myObj);
-        for (message of myObj){
-          //var sender = message.sender;
-          //var time = message.time;
-          var content = message.content;
-          create(content);
-        }
-      }
-    };
-    xmlhttp.open("GET", "./system/commentRetrive.php?x=" + myJson, true);
-    xmlhttp.send();
-  }
-
-  function redraw(){
-    while (container.firstChild) {
-      container.removeChild(container.firstChild);
-    }
-  }
-
-  function dispalyComment(){
-    if(comment.style.display == 'none'){
-      comment.style.display = 'block';
-      projectComment();
-    }else{
-      comment.style.display = 'none'
-    }
-  }
-
-  function add(){
-
-    var content = textInput.value;
-    textInput.value= null;
-    var newComment = {
-      "projectID":projectID,
-      "commenter":"NULL" ,
-      "content":content
-    }
-    var insertJson = JSON.stringify(newComment);
-    var Xmlhttp = new XMLHttpRequest();
-    Xmlhttp.onreadystatechange = function() {
-      if (this.readyState == 4 && this.status == 200) {
-          var m = this.responseText;
-          console.log(m);
-          create(content);
-        }
-    };
-    Xmlhttp.open("POST", "./system/insertCommentJson.php", true);
-    Xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    Xmlhttp.send("x=" + insertJson);
-  }
-
-  function create(content){
-
-    var panel = document.createElement("div");
-    panel.className="panel panel-default comment";
-    var panelHeading = document.createElement("div");
-    panelHeading.className="panel-heading";
-    panelHeading.appendChild(document.createTextNode("username"));
-    var panelBody = document.createElement("div");
-    panelBody.className="panel-body";
-    panelBody.appendChild(document.createTextNode(content));
-    panel.appendChild(panelHeading);
-    panel.appendChild(panelBody);
-    container.insertAdjacentElement('afterbegin', panel)
-  }
+  setProjectID(<?= $vID ?>);
 </script>
-
-
-
 
 <div style="padding-bottom:80px"></div>
 <?php

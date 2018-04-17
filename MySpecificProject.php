@@ -60,17 +60,19 @@ include 'imports/navigation2.php';
             <a href="#" class="list-group-item list-group-item-action">
               <span class="glyphicon glyphicon-folder-open"></span>
               src
-              <span class="glyphicon glyphicon-trash"></span>
+              <span class="glyphicon glyphicon-trash delete-file"></span>
             </a>
             <a href="#" class="list-group-item list-group-item-action">
               <span class="glyphicon glyphicon-folder-open"></span>
               doc
-              <span class="glyphicon glyphicon-trash"></span>
+              <span class="glyphicon glyphicon-trash delete-file"></span>
             </a>
           </div>
         </div>
       </div>
   </div>
+
+
   <div class="col-md-3">
     <div class="panel panel-primary">
       <div class="panel-heading">

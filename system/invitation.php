@@ -46,6 +46,7 @@ if ($row != null) {
   $result = mysqli_query($db,$sql);
   if($result > 0){
     echo 'success';
+    header("location:/ProjectSpot/invite.php?success=1");
   }else{
     echo 'failed';
   }

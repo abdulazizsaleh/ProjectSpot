@@ -17,7 +17,7 @@ if(isset($_GET['response']) && isset($_GET['projectID'])){
     echo "Accepted";
     $sql = "SELECT accountID FROM project_account WHERE projectID = ".$projectID;
     $result = mysqli_query($db,$sql);
-    // loop for the account and create chat and like it
+    // loop for the account and create chat and link it
     while ($row = mysqli_fetch_array($result)) {
       $accountID = $row['accountID'];
       $sql = "INSERT INTO chat VALUES (NULL , ".$projectID." , '' , NULL)";
