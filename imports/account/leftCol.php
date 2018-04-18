@@ -1,6 +1,17 @@
 <?php
 $result = mysqli_query($db,"select * from account where username = '".$username."'");
 $row = mysqli_fetch_array($result);
+
+
+/////////////////////////////
+// Function for calculating age 
+
+$dateOfBirth = $row['DOB'];
+$today = date("Y-m-d");
+$diff = date_diff(date_create($dateOfBirth), date_create($today));
+
+
+//////////////////////////////
 ?>
 <div class="container-fluid text-center">
 <div class="col-md-3">
@@ -28,11 +39,11 @@ $row = mysqli_fetch_array($result);
           </tr>
           <tr>
             <th>age:</th>
-            <td></td>
+            <td><? echo $diff->format('%y'); ?></td>
           </tr>
           <tr>
             <th>gender:</th>
-            <td></td>
+            <td><?= $row['gender'] ?></td>
           </tr>
         </table>
       </div>
