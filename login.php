@@ -13,10 +13,12 @@ include 'imports/navigation1.php';
         <label for="exampleInputPassword1">Password</label>
         <input type="password" class="form-control" placeholder= "Enter password " name="password" required>
       </div>
-      <input class = "btn" type="submit" value="Login">
+      <input class = "btn center-btn" type="submit" value="Login">
   </form>
   <br>
-  <a href="createNewAccount.php" class="btn btn-primary">create new account</a>
+  <div class="text-center">
+    <a href="createNewAccount.php" class="btn btn-primary">Create New Account</a>
+  </div>
 </div>
 <div style="padding-bottom:320px"></div>
 <?php

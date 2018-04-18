@@ -2,7 +2,7 @@ body{
   padding-top: 5px;
   font-family:Book Antiqua;
   font-size: 1.7rem;
-  
+
 }
 #myHeader{
   position: relative;
@@ -199,4 +199,22 @@ body{
   margin: 0;
   background-repeat: no-repeat;
   background-size: 100%;
+}
+.center-btn {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width:auto;
+}
+.f1{
+  display: inline;
+  position :relative;
+}
+.f2{
+  display: inline;
+  position :relative;
+  left:94%;
+}
+.center-th th{
+  text-align:center;
 }

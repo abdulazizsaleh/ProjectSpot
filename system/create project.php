@@ -15,6 +15,7 @@ $resultIn = mysqli_query($db,$sqlIn);
 if( $resultIn == 1){
   $sqlJoin = mysqli_query($db,$sqlJoin);
   if($sqlJoin >= 1){
+    mkdir("projects folders/".$title , 0777 , true);
     header("location:../MyProject.php");
   }else{
     //join failed
