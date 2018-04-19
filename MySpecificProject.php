@@ -60,6 +60,8 @@ $project = trim(mysqli_fetch_array(mysqli_query($GLOBALS['db'],$sql))[0]);
     </div>
   </div>
 </div>
+
+
 <div id="folderModal"class="modal fade" role="dialog">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -83,6 +85,49 @@ $project = trim(mysqli_fetch_array(mysqli_query($GLOBALS['db'],$sql))[0]);
     </div>
   </div>
 </div>
+
+
+<div id="uploadModal"class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title"><span id="change_title">Upload Folder</span></h4>
+      </div>
+      <div class="modal-body">
+        <form id="upload_form" method="post" enctype="multipart/form-data">
+          <p>select
+            <input type="file" name="upload_file" >
+            <input type="hidden" name="hidden_folder_name" id="hidden_folder_name">
+            <input type="hidden" name="project" id="project">
+            <input type="submit" name="upload_btn" value="upload" class="btn btn-info">
+          </p>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div id="filelistModal"class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title"><span id="change_title">Files List</span></h4>
+      </div>
+      <div class="modal-body" id="file_list"></div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
 <script type="text/javascript">
 var project = "<?= $project; ?>";
 console.log(project);
@@ -115,12 +160,13 @@ console.log(project);
     // create new folder
     $(document).on('click', '#folder_btn', function(){
       var folder_name = $('#folder_name').val();
+      var old_name = $('#old_name').val();
       var action = $('#action').val();
       if(folder_name != ''){
         $.ajax({
           url:"/ProjectSpot/system/projectFiles.php",
           method:"POST",
-          data:{action:action, folder_name:folder_name ,project:project},
+          data:{action:action, folder_name:folder_name, old_name:old_name ,project:project},
           success:function(data){
             $('#folderModal').modal('hide');
             load_folders();
@@ -132,6 +178,54 @@ console.log(project);
       }
     });
 
+
+    //update or rename load_folders
+    $(document).on('click', '.update' , function(){
+      var folder_name = $(this).data("name");
+      $('#old_name').val(folder_name);
+      $('#folder_name').val(folder_name);
+      $('#action').val('change');
+      $('#folder_btn').val('Update');
+      $('#change_title').text("Change Folder Name");
+      $('#folderModal').modal("show");
+    });
+
+    //upload modal
+    $(document).on('click', '.upload' , function(){
+      var folder_name = $(this).data("name");
+      $('#hidden_folder_name').val(folder_name);
+      $('#project').val(project);
+      $('#uploadModal').modal("show");
+    });
+
+    $('#upload_form').on('submit' ,function(){
+      $.ajax({
+        url:"/ProjectSpot/system/upload.php",
+        method:"POST",
+        data: new FormData(this),
+        contentType:false,
+        cache:false,
+        processData:false,
+        success:function(data){
+          load_folders();
+          alert(data);
+        }
+      });
+    });
+
+    $(document).on('click', '.view_files' , function(){
+      var folder_name = $(this).data("name");
+      var action = "fetchfiles";
+      $.ajax({
+        url:"/ProjectSpot/system/projectFiles.php",
+        method:"POST",
+        data:{action:action, folder_name:folder_name ,project:project},
+        success:function(data){
+          $('#file_list').html(data);
+          $('#filelistModal').modal('show');
+        }
+      });
+    });
   });
 
 </script>
