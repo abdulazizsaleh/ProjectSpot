@@ -3,7 +3,8 @@ include 'imports/head.php';
 include 'imports/navigation1.php';
  ?>
   <div class="container">
-    <form class="" action="system/createAccountProcess.php" method="post">
+    <form class="" action="system/createAccountProcess.php" method="post" enctype="multipart/form-data">
+      <!-- <input type="file"name="image" value="image/user.png" file="image/user.png" style="display:none;"> -->
       <div class="form-group">
         <label for="username">username</label>
         <input type="text" name="username" class="form-control" placeholder="Enter username" required>

@@ -1,5 +1,5 @@
 <?php
-	
+
 	include './system/init.php';
 
 	session_start();
@@ -10,19 +10,19 @@
 $file = $_FILES['image']['tmp_name'];
 
 if(isset($file)){
-	
+
 	$image = addslashes(file_get_contents($_FILES['image']['tmp_name']));
 	$image_name = addslashes($_FILES['image']['name']);
 	$image_size = getimagesize($_FILES['image']['tmp_name']);
 
 	if($image_size==TRUE){
-			if($update_image = mysqli_query($db,"UPDATE account set image = '$image' WHERE username = '".$user."'"))
+			if($update_image = mysqli_query($db,"UPDATE account set image = '".$image."' WHERE username = '".$user."'"))
 			{
 
-			
+
 			$qryyyy = "SELECT image FROM account WHERE username = '".$user."'";
 			$result = mysqli_query($db , $qryyyy);
-			
+
 			$row = mysqli_fetch_array($result);
 		}
 		else
@@ -31,7 +31,7 @@ if(isset($file)){
 		}
 	}
 	else{
-		
+
 		echo "thats not image";
 	}
 }
@@ -39,7 +39,7 @@ else{
 	echo "please select image";
 }
 
-	
+
 if($user){
 		if($_POST['submit'])
 		{
@@ -49,50 +49,50 @@ if($user){
 			$qry_password = " SELECT * FROM account WHERE username = '".$user."'" ;
 
 			$qry_rs = mysqli_query($db , $qry_password);
-			
-			
+
+
 			$row = mysqli_fetch_array($qry_rs);
-			
+
 			$oldpassworddb =  $row['password'];
-			
-			
-			
+
+
+
 			if($oldpassword == $oldpassworddb)
 			{
 				if($newpassword == $repeatnewpassword)
 				{
 					$qry_update = mysqli_query($db , " UPDATE account SET password = $newpassword WHERE username = '".$user."'");
-					
+
 					session_destroy();
-					
+
 					echo " Your password have changed ";
-					
+
 					die("<a href='login.php'>return</a>");
 				}
 				else{
 					echo"new password not matching ";
 				}
-					
+
 			}
 			else{
 				echo" password not matching ";
 			}
-			
-			
-			
+
+
+
 			$DOB = $_POST['dob'];
 			echo $DOB;
 			$update_dob  = mysqli_query($db , " UPDATE account SET DOB = '".$DOB."' WHERE username = '".$user."'");
-			
-			
+
+
 			$phone_num = $_POST['num'];
-			
+
 			$update_num = mysqli_query($db , "UPDATE account SET phone_num = $phone_num WHERE username = '".$user."'");
 
-			
-			
+
+
 			$type_of = $_POST['gender'];
-			
+
 			$update_gender = mysqli_query($db , "UPDATE account SET gender = '".$type_of."' WHERE username = '".$user."'");
 			}
 
@@ -111,7 +111,7 @@ else{
     padding: 50px;
     font-size: 20px;
     text-align: center;
-   
+
 }
 </style>
 </head>

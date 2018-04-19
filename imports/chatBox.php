@@ -99,7 +99,13 @@
 
     var user_img = document.createElement("img");
     user_img.className = "img-circle user-image";
-    user_img.src = "data:image;base64,"+getUserImg(sender);
+    var chaterImg = getUserImg(sender);
+    if(chaterImg != null && chaterImg != ''){
+      user_img.src = "data:image;base64,"+chaterImg;
+    }else{
+      user_img.src = "/ProjectSpot/image/user.png";
+    }
+
     //user_img.src="image/Einstein.jpg";
     var msgP = document.createElement("p");
     msgP.className = "message";

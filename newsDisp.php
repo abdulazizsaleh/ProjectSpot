@@ -1,6 +1,3 @@
-<!DOCTYPE html>
-<html>
-<body>
 
 <?php
 /*
@@ -26,8 +23,8 @@ echo "Connected successfully -- ";
 
 //-------------------------------------------------------------------
 
-// below is a query that selects all attributes from the mentioned database which are images 
-// and loop through the whole records to display all the images 
+// below is a query that selects all attributes from the mentioned database which are images
+// and loop through the whole records to display all the images
 
 $qry = "SELECT * FROM news";
 $result = mysqli_query($conn , $qry);
@@ -38,7 +35,3 @@ while($row = mysqli_fetch_array($result)){
 
 mysqli_close($conn);
 ?>
-
-
-</body>
-</html>

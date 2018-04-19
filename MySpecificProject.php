@@ -45,20 +45,59 @@ $project = trim(mysqli_fetch_array(mysqli_query($GLOBALS['db'],$sql))[0]);
       </div>
   </div>
 
+  <?php
 
-  <div class="col-md-3">
-    <div class="panel panel-primary">
-      <div class="panel-heading">
-        <h3 class="panel-title">Project View</h3>
-      </div>
-      <img src="image/u502.png" class="img-rounded" width="100%" height="25%" alt="">
-      <div class="panel-body">
-        <p>Click project view to create or edit the view that appear to the public.</p>
-        <br>
-        <p class="text-center" style="padding-bottom:17px"><a href="createView.php?pID=<?= $_GET['pID'] ?>" class="btn btn-primary" role="button">Project View</a></p>
+  $view = mysqli_fetch_array(mysqli_query($GLOBALS['db'] , "select * from view where projectID = ".$_GET['pID']));
+  if ($view[0] == null): ?>
+    <div class="col-md-3">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title">Project View</h3>
+        </div>
+        <img src="image/u502.png" class="img-rounded" width="100%" height="25%" alt="">
+        <div class="panel-body">
+          <p>Click project view to create or edit the view that appear to the public.</p>
+          <br>
+          <p class="text-center" style="padding-bottom:17px"><a href="createView.php?pID=<?= $_GET['pID'] ?>" class="btn btn-primary" role="button">Project View</a></p>
+        </div>
       </div>
     </div>
-  </div>
+  <?php else: ?>
+    <div class="col-md-3">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title">Project View</h3>
+        </div>
+        <img src="data:image;base64,<?=base64_encode($view['pic'])?>" class="img-responsive" width="95%" height="25%" style="margin:auto;padding:auto;">
+
+        <table class="table text-center">
+          <tr class="center-th" >
+            <th colspan="2"><?= $view['title'] ?></th>
+          </tr>
+          <tr>
+            <td colspan="2"><?= $view['brief'] ?></td>
+          </tr>
+          <tr class="center-th">
+            <th>Rate</th>
+            <th>View</th>
+          </tr>
+          <tr>
+            <td><?= $view['rate'] ?></td>
+            <td><?= $view['veiws'] ?></td>
+          </tr>
+          <tr>
+            <td><p class="text-center" style="padding-bottom:17px"><a href="#" class="btn btn-default" role="button">Edit</a></p></td>
+            <td><p class="text-center" style="padding-bottom:17px"><a href="#" class="btn btn-primary" role="button">Go</a></p></td>
+          </tr>
+        </table>
+        <div class="panel-body">
+
+        </div>
+      </div>
+    </div>
+  <?php endif; ?>
+
+
 </div>
 
 

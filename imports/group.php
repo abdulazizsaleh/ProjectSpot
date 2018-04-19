@@ -36,5 +36,7 @@ try {
     echo $e;
   } catch (RuntimeException $e) {
     echo $e;
+  } catch (Exception $e){
+    echo $e;
   }
 ?>

@@ -5,8 +5,6 @@ $(document).ready(function(){
     console.log(projectID);
     var title = document.getElementById('title').value;
     console.log(title);
-    var poster = document.getElementById('img').files[0];
-    console.log(poster);
     var brief = document.getElementById('brief').value;
     console.log(brief);
     var desc = tinymce.get("desc").getContent();
@@ -14,7 +12,6 @@ $(document).ready(function(){
     var data = {
       projectID : projectID,
       title : title,
-      poster : poster,
       brief : brief,
       desc : desc
     };
@@ -33,20 +30,9 @@ $(document).ready(function(){
     Xmlhttp.open("POST", "./system/createview.php", true);
     Xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     Xmlhttp.send("x=" + myJson);
-    //window.location.replace("./system/createview.php");
 
-  // var formData = new FormData($('#create-view-form')[0]);
-  // formData.append("description",desc);
-  // $.ajax({
-  //     type: "POST",
-  //     url: "./system/createview.php",
-  //     data: formData,
-  //     processData: false,
-  //     contentType: false,
-  //     success: function (data) {
-  //         $("#divider").html(data);
-  //     }
-  // });
+    window.location.replace("./poster.php?pID="+projectID);
+
     return false;
   });
 

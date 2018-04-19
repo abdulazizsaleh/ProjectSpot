@@ -4,7 +4,7 @@ $row = mysqli_fetch_array($result);
 
 
 /////////////////////////////
-// Function for calculating age 
+// Function for calculating age
 
 $dateOfBirth = $row['DOB'];
 $today = date("Y-m-d");
@@ -12,12 +12,22 @@ $diff = date_diff(date_create($dateOfBirth), date_create($today));
 
 
 //////////////////////////////
+
+
+function imageSrc($image){
+  if ($image != null && $image != '') {
+    echo "data:image;base64,".base64_encode($image);
+  } else {
+    echo "/ProjectSpot/image/user.png";
+  }
+}
 ?>
 <div class="container-fluid text-center">
 <div class="col-md-3">
   <div class="well">
     <p><a href="#">My Profile</a></p>
-    <img src="data:image;base64,<?= base64_encode($row['image'])?>"  class="img-circle" height="95" width="95" alt="Avatar">
+    <img src="<?= imageSrc($row['image']); ?>"
+       class="img-circle" height="95" width="95" alt="Avatar">
       <div>
         <table class="table">
           <br>

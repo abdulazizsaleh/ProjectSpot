@@ -16,13 +16,13 @@ function upload($pID){
   	$image_size = getimagesize($_FILES['poster']['tmp_name']);
   	if($image_size==TRUE){
       $sql = "UPDATE view set pic = '".$image."' WHERE projectID = ".$pID;
-      // if($GLOBALS['$db'] $db == null){
+      // if($GLOBALS['$db'] == null){
       //   echo 'db null';
       // }else {
       //     echo 'db not null';
       // }
   		$update_image = mysqli_query($db,$sql);
-      //echo $sql;
+
     }
   }
 }

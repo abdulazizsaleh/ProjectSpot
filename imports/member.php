@@ -9,10 +9,21 @@ while($chatIDs = mysqli_fetch_array($result)):
     if( $row['ID'] != $_SESSION["ID"]){
 ?>
 <button onclick="chatIDFun(<?= $chatID ?>)" class="list-group-item list-group-item-action contact">
-  <img src="data:image;base64,<?= base64_encode($row['image'])?>" class="img-circle user-image" >
+  <img src="<?= imageSrc($row['image'])?>" class="img-circle user-image" >
   <div class="text-left">
     <h4><?= $row['frist_name'].' '.$row['last_name'] ?></h4>
     <small><?= $row['type']?></small>
   </div>
 </button>
-<?php } endwhile; endwhile;?>
+<?php
+} endwhile; endwhile;
+
+function imageSrc($image){
+  if ($image != null && $image != '') {
+    echo "data:image;base64,".base64_encode($image);
+  } else {
+    echo "/ProjectSpot/image/user.png";
+  }
+}
+
+?>
