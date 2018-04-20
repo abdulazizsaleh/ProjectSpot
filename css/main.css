@@ -6,7 +6,7 @@ body{
   padding-top: 5px;
   font-family:Book Antiqua;
   font-size: 1.7rem;
-  margin-bottom: 60px; 
+  margin-bottom: 60px;
 }
 #myHeader{
   position: relative;
@@ -224,4 +224,10 @@ body{
 }
 .center-th th{
   text-align:center;
+}
+.jumbotron{
+  background-color: rgb(255, 255, 255);
+}
+.jumbotron p{
+  color:rgb(121, 120, 113);
 }

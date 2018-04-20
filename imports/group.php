@@ -33,10 +33,13 @@ try {
 <?php
 }// end of (if) that the user does not have group
   } catch (mysqli_sql_exception $e) {
-    echo $e;
+    echo $e->getMessage();
+    die();
   } catch (RuntimeException $e) {
-    echo $e;
+    echo $e->getMessage();
+    die();
   } catch (Exception $e){
-    echo $e;
+    echo $e->getMessage();
+    die();
   }
 ?>

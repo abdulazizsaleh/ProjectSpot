@@ -20,13 +20,15 @@ try {
     }
   }
   $result = mysqli_query($db , $sql);
-  echo $sql;
 } catch (mysqli_sql_exception $e) {
-  echo $e;
+    echo $e->getMessage();
+    die();
 } catch (RuntimeException $e) {
-  echo $e;
-} catch (Exception $e){
-  echo $e;
+    echo $e->getMessage();
+    die();
+} catch (Exception $e) {
+    echo $e->getMessage();
+    die();
 }
 
 ?>
