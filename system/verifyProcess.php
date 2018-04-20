@@ -1,31 +1,22 @@
 <?php
+  include 'validation.php';
   session_start();
-
-  $_SESSION["Firstname"]= $_POST['Firstname'];
-  $_SESSION["Lastname"]= $_POST['Lastname'];
-  $_SESSION["email"]= $_POST['email'];
-  $_SESSION["phone"]= $_POST['phone'];
-  $_SESSION["type"]= $_POST['type'];
-  $_SESSION["university"]= $_POST['university'];
-  $_SESSION["faculty"]= $_POST['faculty'];
-  $_SESSION["department"]= $_POST['department'];
-  $_SESSION["ID"]= $_POST['ID'];
-
-  // echo $_SESSION["Firstname"];
-  // echo $_SESSION["Lastname"];
-  // echo $_SESSION["email"];
-  // echo $_SESSION["phone"];
-  // echo $_SESSION["type"];
-  // echo $_SESSION["university"];
-  // echo $_SESSION["faculty"];
-  // echo $_SESSION["department"];
-  // echo $_SESSION["ID"];
-
-  /*
-        here sms code should send to the user phone number
-  */
-
-  header("location:../verify.php");
+  try{
+    $_SESSION["Firstname"]= validate($_POST['Firstname']);
+    $_SESSION["Lastname"]= validate($_POST['Lastname']);
+    $_SESSION["email"]= validate($_POST['email']);
+    $_SESSION["phone"]= validate($_POST['phone']);
+    $_SESSION["type"]= validate($_POST['type']);
+    $_SESSION["university"]= validate($_POST['university']);
+    $_SESSION["faculty"]= validate($_POST['faculty']);
+    $_SESSION["department"]= validate($_POST['department']);
+    $_SESSION["ID"]= validate($_POST['ID']);
+    header("location:../verify.php");
+  } catch (Exception $e){
+    if(isset($_SERVER['HTTP_REFERER'])) {
+      header("location:".$_SERVER['HTTP_REFERER']."?invalid=1");
+    }
+  }
 
 
  ?>
