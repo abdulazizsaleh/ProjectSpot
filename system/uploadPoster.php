@@ -22,7 +22,6 @@ function upload($pID){
       //     echo 'db not null';
       // }
   		$update_image = mysqli_query($db,$sql);
-
     }
   }
 }

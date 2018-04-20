@@ -23,15 +23,13 @@ $(document).ready(function(){
           console.log("inside ajax ready state");
           var m = this.responseText;
           console.log(m);
-
+          window.location.replace("./poster.php?pID="+projectID);
         }
     };
     console.log("before open ajax");
     Xmlhttp.open("POST", "./system/createview.php", true);
     Xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     Xmlhttp.send("x=" + myJson);
-
-    window.location.replace("./poster.php?pID="+projectID);
 
     return false;
   });
