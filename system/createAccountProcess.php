@@ -1,11 +1,12 @@
 <?php
   require_once 'init.php';
+  include 'validation.php';
   session_start();
 
   try {
-    if(isset() && isset()){
-      $username = stripcslashes($_POST['username']);
-      $password = stripcslashes($_POST['password']);
+    if(isset($_POST['username']) && isset($_POST['password'])){
+      $username = stripcslashes(validate($_POST['username']));
+      $password = stripcslashes(validate($_POST['password']));
       $firstname = stripcslashes($_SESSION["Firstname"]);
       $lastname = stripcslashes($_SESSION["Lastname"]);
       $email = stripcslashes($_SESSION["email"]);

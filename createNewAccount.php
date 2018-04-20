@@ -3,6 +3,12 @@ include 'imports/head.php';
 include 'imports/navigation1.php';
  ?>
  <div class="container">
+
+   <div id="failed" class="alert alert-danger alert-dismissible fade in" hidden>
+     <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+     <strong>Invalid Input!</strong> make sure to fill every field.
+   </div>
+
    <form class="" action="system/verifyProcess.php" method="post">
      <div class="form-row">
        <div class="form-group col-md-6">
@@ -73,5 +79,8 @@ include 'imports/navigation1.php';
    </form>
  </div>
  <?php
+ if(isset($_GET['invalid'])){
+   echo '<script type="text/javascript"> document.getElementById("failed").hidden = false; </script>';
+ }
  include 'imports/footer.php';
  ?>

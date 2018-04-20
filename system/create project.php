@@ -1,9 +1,10 @@
 <?php
 require_once 'init.php';
+include 'validation.php';
 try {
   session_start();
   if(isset($_POST['title']) && trim($_POST['title']) != ''){
-    $title = $_POST['title'];
+    $title = validate($_POST['title']);
     $title = stripcslashes($title);
     $title = mysqli_real_escape_string($db,$title);
     $result = mysqli_query($db,"select * from project");
