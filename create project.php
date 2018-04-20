@@ -4,6 +4,12 @@ include 'imports/navigation2.php';
 ?>
 
 <div class="container">
+
+  <div id="failed" class="alert alert-danger alert-dismissible fade in" hidden>
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <strong>Failed!</strong> Please try again.
+  </div>
+
   <form class="form" action="system/create project.php" method="post">
     <div class="form-group">
       <label for="title">Title</label>
@@ -14,5 +20,8 @@ include 'imports/navigation2.php';
 </div>
 
 <?php
+if(isset($_GET['failed'])){
+  echo '<script type="text/javascript"> document.getElementById("failed").hidden = false; </script>';
+}
 include 'imports/footer.php';
 ?>

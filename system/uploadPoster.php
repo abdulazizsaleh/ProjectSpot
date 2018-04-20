@@ -6,7 +6,7 @@ function upload($pID){
     echo 'Database connection is failed'.mysqli_connect_errer();
     die();
   }
-
+  
   $file = $_FILES['poster']['tmp_name'];
 
   if(isset($file)){
