@@ -10,17 +10,6 @@ if(isset($_GET['vID'])){
 }
 
 
-// added cookies below to prevent duplicate views
-
-if (!isset($_COOKIE['counter'])) {
-   setcookie('counter',0);
-}
-
-// when the counter value reaches 1 it will go to the else part and stop updating views
-if (isset($_COOKIE['counter']) && $_COOKIE['counter'] == 0) {
-   $current_val = $_COOKIE['counter'];
-   $current_val++;
-   setcookie('counter',$current_val);
    $qry = "SELECT * FROM view where ID =".$vID;
    $result = mysqli_query($db , $qry);
    $row = mysqli_fetch_array($result);
@@ -29,17 +18,6 @@ if (isset($_COOKIE['counter']) && $_COOKIE['counter'] == 0) {
    $update_count = mysqli_query($db,"UPDATE view SET veiws = $new_count WHERE ID = ".$vID);
 
 
-
-} else {
-   echo 'you have already visited this page';
-}
-
-
-$qry2 = "SELECT * FROM view where ID =".$vID;
-$rslt = mysqli_query($db , $qry2);
-$row = mysqli_fetch_array($rslt);
-
-$new_count = $row['veiws'];
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 
