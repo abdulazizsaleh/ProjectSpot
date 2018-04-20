@@ -1,5 +1,4 @@
 <?php
-
 include './system/init.php';
 
 if($_GET['keyword'] && !empty($_GET['keyword']))
@@ -22,7 +21,7 @@ if($_GET['keyword'] && !empty($_GET['keyword']))
 
 		if($statement->num_rows() == 0) // if there are no records fetched.
         {
-            echo " nothing result found ";
+            echo '<div id="item">nothing found</div> ';
             $statement->close();
             $db->close();
 
@@ -33,21 +32,19 @@ if($_GET['keyword'] && !empty($_GET['keyword']))
             while ($statement->fetch()) // loop thro the whole records and display the matches
             {
 				echo "<br>";
-                echo "<h5>The user name you searched for is : $name</h5>";
+                echo '<div id="item"><a href="projects.php">The user name you searched for is : '.$name.'</a></div>';
             };
 
 			 $statement2->bind_result($name);
             while ($statement2->fetch()) // loop thro the whole records and display the matches
             {
 				echo "<br>";
-                echo "<h5>the name you searched for is : $name</h5>";
+                echo '<div id="item"><a href="projects.php">the name you searched for is : '.$name.'</a></div>';
             };
             $statement->close();
             $db->close();
         }
 
 	}
-
-
 
 ?>

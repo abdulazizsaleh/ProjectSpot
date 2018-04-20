@@ -1,4 +1,20 @@
+<style>
+#results {
+	position: relative;
+	color: red;
+	top: 100
+	font-size: 20px;
+	
+}
+#results #item
+{
+	box-sizing: border-box;
+    padding:10px;
+    background: white;
+    border-bottom:1px solid #bdbdbd;
+}
 
+</style>
 <script>
     $(document).ready(function () {
         $("#searchbox").on('keyup',function () {
