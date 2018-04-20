@@ -14,7 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 <div class="container">
   <form class="image" action="" method="post" enctype="multipart/form-data">
     <label for="img">poster</label>
-    <div class="">
+    <div style="height:610px;">
         <input id="img" class="form-control" style="display:inline; width:45%;" type="file" name="poster" onchange="preview.call(this)">
         <img src="" height="600" style="display:none" id="img-preview">
         <button class ="btn btn-primary" type="submit" name="upload" >upload</button>

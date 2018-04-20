@@ -32,9 +32,19 @@ $row = mysqli_fetch_array($result);
     </div>
   </div>
 </div>
-
-<?php mysqli_query($db,"update mailBox set state = 0 where ID = ".$msgID); ?>
-<div style="padding-bottom:80px"></div>
+<script type="text/javascript">
+  $(document).ready(function(){
+    $(document).on('click' , '.delete' , function (e){
+      console.log('clicked');
+      var old_href = $(this).attr('href');
+      var new_href = old_href + "&msgID=" + <?= $msgID ?>;
+      console.log(new_href);
+      $(this).attr('href' , new_href);
+    });
+  });
+</script>
 <?php
+mysqli_query($db,"update mailBox set state = 0 where ID = ".$msgID);
+
 include 'imports/footer.php';
 ?>

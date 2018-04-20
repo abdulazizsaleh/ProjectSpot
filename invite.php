@@ -50,41 +50,8 @@ include 'imports/navigation2.php';
       label.removeChild(label.firstChild);
     }
   }
-
-
-
-  // var opt1 = document.createElement("option");
-  // var opt2 = document.createElement("option");
-  // var opt3 = document.createElement("option");
-  // opt1.appendChild(document.createTextNode("username"));
-  // opt2.appendChild(document.createTextNode("Phone number"));
-  // opt3.appendChild(document.createTextNode("university ID"));
-  //
-  // opt1.addEventListener("mouseover", function(e){
-  //   label.appendChild(document.createTextNode("username"));
-  //   input.placeholder = "Enter the username";
-  //   input.disabled = false;
-  //   console.log("opt1 event");
-  // });
-  //
-  // opt2.addEventListener("click", function(e){
-  //   label.appendChild(document.createTextNode("Phone number"));
-  //   input.placeholder = "Enter the Phone number";
-  //   input.disabled = false;
-  // });
-  //
-  // opt3.addEventListener("click", function(e){
-  //   label.appendChild(document.createTextNode("university ID"));
-  //   input.placeholder = "Enter the university ID";
-  //   input.disabled = false;
-  // });
-  //
-  // menu.appendChild(opt1);
-  // menu.appendChild(opt2);
-  // menu.appendChild(opt3);
 </script>
 
-<div style="padding-bottom:80px"></div>
 <?php
 include 'imports/footer.php';
 ?>

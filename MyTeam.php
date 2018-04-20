@@ -26,11 +26,6 @@ require_once 'system/init.php';
   <?php include 'imports/chatBox.php'; ?>
 </div>
 
-
-
-
-
-<div style="padding-bottom:80px"></div>
 <?php
 include 'imports/footer.php';
 ?>

@@ -123,7 +123,6 @@ $update_rating = mysqli_query($db , "UPDATE view SET rate = ".$new_rating." WHER
   setProjectID(<?= $vID ?>);
 </script>
 
-<div style="padding-bottom:80px"></div>
 <?php
 include 'imports/footer.php';
 ?>

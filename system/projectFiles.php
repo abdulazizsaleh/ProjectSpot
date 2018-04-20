@@ -60,7 +60,7 @@ if (isset($_POST["action"]) && isset($_POST["project"])) {
     if (isset($_POST["folder_name"]) && isset($_POST["project"])) {
       $folderName = "projects folders/".$_POST["project"]."/".$_POST["folder_name"];
       if (!file_exists($folderName)) {
-        mkdir($folderName , 0777 , true);
+        mkdir($folderName , 0775 , true);
         echo "Folder Created";
       } else {
         echo "Folder Already exists";

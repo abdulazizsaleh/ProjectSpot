@@ -7,7 +7,6 @@ include 'imports/navigation2.php';
 </script>
 
   <div class="container">
-    <!-- <div class="well"> -->
       <div class="list-group" id="projectsFont">
         <?php
         $sql = " SELECT title , project.projectID from project , account , project_account where project_account.accountID=account.ID AND project_account.projectID=project.projectID AND account.username = '".$username."'";
@@ -17,13 +16,8 @@ include 'imports/navigation2.php';
         }
         ?>
       </div>
-    <!-- </div> -->
   </div>
 
-
-
-
-<div style="padding-bottom:80px"></div>
 <?php
 include 'imports/footer.php';
 ?>

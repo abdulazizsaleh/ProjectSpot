@@ -2,7 +2,6 @@
   require_once 'system/init.php';
   include 'imports/head.php';
   include 'imports/navigation1.php';
-  // include 'imports/navigation2.php';
   include 'imports/header.php';
 ?>
 <script type="text/javascript">

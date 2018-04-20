@@ -9,8 +9,5 @@ include 'system/init.php';
 <?php
 $qry = "SELECT * FROM view order by rate desc";
 include 'imports/projectView.php';
-?>
-<div style="padding-bottom:80px"></div>
-<?php
 include 'imports/footer.php';
 ?>

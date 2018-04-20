@@ -13,6 +13,9 @@ if(isset($_GET['response']) && isset($_GET['projectID'])){
 
   if ($response == 0 ) {
     echo "Rejected";
+    $sql = "delete from mailbox where ID =".$_GET['msgID'];
+    $r = mysqli_query($db,$sql);
+    header("location:../MailBox.php");
   } else {
     echo "Accepted";
     $sql = "SELECT accountID FROM project_account WHERE projectID = ".$projectID;
@@ -56,8 +59,9 @@ if(isset($_GET['response']) && isset($_GET['projectID'])){
     if (!$r){
        echo $sql;
        die();
-     }
-    //$sql = "delete from mailbox where ID =".$messageID;
+    }
+    $sql = "delete from mailbox where ID =".$_GET['msgID'];
+    $r = mysqli_query($db,$sql);
     header("location:../MailBox.php");
   }
 

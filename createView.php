@@ -29,12 +29,10 @@ if($view[0] != null){
 
 </div>
 
-
-<div style="padding-bottom:80px"></div>
-
 <script type="text/javascript" src="tinymce/plugins/tinymce/tinymce.min.js"></script>
 <script type="text/javascript" src="tinymce/plugins/tinymce/init-tinymce.js"></script>
 <script type="text/javascript" src="tinymce/setData.js"></script>
+
 <?php
 include 'imports/footer.php';
 ?>

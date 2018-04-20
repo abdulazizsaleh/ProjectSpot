@@ -250,7 +250,6 @@ console.log(project);
   });
 
 </script>
-<div style="padding-bottom:25px"></div>
 <?php
 include 'imports/footer.php';
 ?>

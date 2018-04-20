@@ -10,11 +10,5 @@ include 'imports/account/leftCol.php';
 include 'imports/account/myproject.php';
 include 'imports/account/mailbox.php';
 include 'imports/account/team.php';
- ?>
-
-
-
- <div style="padding-bottom:80px"></div>
- <?php
- include 'imports/footer.php';
+include 'imports/footer.php';
  ?>

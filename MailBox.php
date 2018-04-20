@@ -86,10 +86,6 @@ $result = mysqli_query($db,$sql);
 
 </div>
 
-
-
-
-<div style="padding-bottom:80px"></div>
 <?php
 include 'imports/footer.php';
 ?>

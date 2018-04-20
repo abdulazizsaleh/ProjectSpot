@@ -20,7 +20,7 @@ include 'imports/navigation1.php';
     <a href="createNewAccount.php" class="btn btn-primary">Create New Account</a>
   </div>
 </div>
-<div style="padding-bottom:320px"></div>
+
 <?php
 include 'imports/footer.php';
 ?>

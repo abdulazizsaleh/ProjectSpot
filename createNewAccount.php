@@ -72,7 +72,6 @@ include 'imports/navigation1.php';
      </div>
    </form>
  </div>
- <div style="padding-bottom:10px"></div>
  <?php
  include 'imports/footer.php';
  ?>
