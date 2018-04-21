@@ -2,33 +2,35 @@
 include 'imports/head.php';
 include 'imports/navigation2.php';
 require_once 'system/init.php';
-include 'imports/time.php';
 ?>
 <script type="text/javascript">
     document.getElementById('mailBox').className = "active";
 </script>
 <?php
-// $sql = "select email from account where ID = ".$_SESSION['ID'];
-// $result = mysqli_query($db,$sql);
-// $row = mysqli_fetch_array($result);
-$email = $_SESSION['email'];
-$limit = 10;
-if(isset($_GET['p'])){
-  $page = $_GET['p'];
-}else{
-  $page = 0;
-}
-$numOfMails = mysqli_num_rows(mysqli_query($db,"select * from mailBox where reciever = '".$email."'"));
-$numOfPages = ceil($numOfMails/$limit);
 
-if (!isset($page) || $page <= 0){
-  $offset = 0;
-}else{
-  $offset = ceil($page - 1) * $limit;
-}
+  if (isset($_SESSION['email'])) {
+    $email = $_SESSION['email'];
+    $limit = 10;
+    if(isset($_GET['p'])){
+      $page = $_GET['p'];
+    }else{
+      $page = 0;
+    }
+    $numOfMails = mysqli_num_rows(mysqli_query($db,"select * from mailBox where reciever = '".$email."'"));
+    $numOfPages = ceil($numOfMails/$limit);
 
-$sql = "select * from mailBox where reciever = '".$email."' limit ".$offset.",".$limit."";
-$result = mysqli_query($db,$sql);
+    if (!isset($page) || $page <= 0){
+      $offset = 0;
+    }else{
+      $offset = ceil($page - 1) * $limit;
+    }
+
+    $sql = "select * from mailBox where reciever = '".$email."' limit ".$offset.",".$limit."";
+    $result = mysqli_query($db,$sql);
+  } else {
+    # code...
+  }
+
 ?>
 
 

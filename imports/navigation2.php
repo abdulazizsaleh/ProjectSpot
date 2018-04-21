@@ -3,10 +3,10 @@
    session_start();
    $username = $_SESSION["username"];
 ?>
-<nav class="navbar navbar-inverse">
+<nav class="navbar navbar-inverse navbar-static-top">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="./index.php">ProjectSpot</a>
+      <a class="navbar-brand" href="./index.php"><img src="image/light.png" style="display:inline; margin:1px; " height="100%"> ProjectSpot </a>
     </div>
     <ul class="nav navbar-nav">
       <li id="account"><a href="./account.php">Account</a></li>

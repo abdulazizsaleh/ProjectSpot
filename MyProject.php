@@ -1,6 +1,7 @@
 <?php
 include 'imports/head.php';
 include 'imports/navigation2.php';
+include 'system/validation.php';
 ?>
 <script type="text/javascript">
     document.getElementById('myProject').className = "active";
@@ -11,6 +12,7 @@ include 'imports/navigation2.php';
       <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
       <strong>Success!</strong> your project has been successfully created.
     </div>
+    <?php if (isNew($_SESSION['ID'])): ?>
       <div class="list-group" id="projectsFont">
         <?php
         $sql = " SELECT title , project.projectID from project , account , project_account where project_account.accountID=account.ID AND project_account.projectID=project.projectID AND account.username = '".$username."'";
@@ -20,6 +22,15 @@ include 'imports/navigation2.php';
         }
         ?>
       </div>
+    <?php else: ?>
+      <div class="jumbotron">
+        <div class="container">
+          <h1>Start new project by clicking on the button</h1>
+          <!-- <p>...</p> -->
+          <p><a class="btn btn-primary btn-lg" href="create project.php" role="button">Click me</a></p>
+        </div>
+      </div>
+    <?php endif; ?>
   </div>
 
 <?php

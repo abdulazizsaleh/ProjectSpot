@@ -3,7 +3,6 @@ html {
   min-height: 100%;
 }
 body{
-  padding-top: 5px;
   font-family:Book Antiqua;
   font-size: 1.7rem;
   margin-bottom: 60px;
@@ -239,4 +238,31 @@ body{
   overflow-x: hidden;
   overflow-y: scroll;
   height:140px;
+}
+
+
+#results {
+	position: relative;
+	color: red;
+	top: 100
+	font-size: 20px;
+
+}
+#results #item{
+	box-sizing: border-box;
+    padding:10px;
+    background: white;
+    border-bottom:1px solid #bdbdbd;
+}
+#logo{
+  margin: 2px;
+  margin-bottom: 5px;
+  height: 60px;
+  width: 18%;
+}
+.logo-header{
+  background-image: url(../image/g.jpg);
+  background-repeat: no-repeat;
+  background-size: 70% 70px;
+  background-position: right;
 }

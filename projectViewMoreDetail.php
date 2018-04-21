@@ -2,6 +2,7 @@
 include 'imports/head.php';
 include 'imports/navigation1.php';
 include 'system/init.php';
+
 if(isset($_GET['vID'])){
     $vID = $_GET['vID'];
 }else{
@@ -9,13 +10,26 @@ if(isset($_GET['vID'])){
   die();
 }
 
+try {
+  if (isset($_SESSION['ID'])) {
+    $session = $_SESSION['ID'];
+  } else {
+    $session = '';
+    throw new RuntimeException();
+  }
+} catch (RuntimeException $e) {
 
-   $qry = "SELECT * FROM view where ID =".$vID;
-   $result = mysqli_query($db , $qry);
-   $row = mysqli_fetch_array($result);
-   $old_count = $row['veiws'];
-   $new_count = $old_count + 1;
-   $update_count = mysqli_query($db,"UPDATE view SET veiws = $new_count WHERE ID = ".$vID);
+}
+
+
+
+
+$qry = "SELECT * FROM view where ID =".$vID;
+$result = mysqli_query($db , $qry);
+$row = mysqli_fetch_array($result);
+$old_count = $row['veiws'];
+$new_count = $old_count + 1;
+$update_count = mysqli_query($db,"UPDATE view SET veiws = $new_count WHERE ID = ".$vID);
 
 
 
@@ -112,7 +126,6 @@ $update_rating = mysqli_query($db , "UPDATE view SET rate = ".$new_rating." WHER
       <h4>Date : <?php getProjectDate($vID); ?></h4>
       <h4 style="padding-bottom:0px;margin-bottom:0px">Team</h4>
         <p><?php getTeamMember($vID); ?></p>
-      <!-- <h4>Rate : </h4> -->
     </div>
   </div>
 
@@ -121,6 +134,7 @@ $update_rating = mysqli_query($db , "UPDATE view SET rate = ".$new_rating." WHER
 <script type="text/javascript" src="system/js/comments.js"></script>
 <script type="text/javascript">
   setProjectID(<?= $vID ?>);
+  setSession(<?= $session ?>);
 </script>
 
 <?php

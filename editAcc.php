@@ -1,16 +1,15 @@
 <?php
 
-	include './system/init.php';
+	include 'system/init.php';
 
 	session_start();
 	$user = $_SESSION['username'];
 
 	echo $user;
 
-$file = $_FILES['image']['tmp_name'];
 
-if(isset($file)){
-
+if(isset($_FILES['image']['tmp_name'])){
+	$file = $_FILES['image']['tmp_name'];
 	$image = addslashes(file_get_contents($_FILES['image']['tmp_name']));
 	$image_name = addslashes($_FILES['image']['name']);
 	$image_size = getimagesize($_FILES['image']['tmp_name']);
@@ -100,24 +99,9 @@ if($user){
 else{
 	echo"error ";
 }
-
 ?>
 
-<!DOCTYPE html>
-<html>
-<head>
-<style>
-.edit {
-    padding: 50px;
-    font-size: 20px;
-    text-align: center;
-
-}
-</style>
-</head>
-<body>
-
-<div class="edit">
+<div style="padding: 50px;font-size: 20px;text-align: center;">
 
 		<?echo '<h3>your image :</h3><img src="data:image;base64,'.base64_encode($row['image']).'"/>';?>
 
@@ -162,5 +146,3 @@ Phone Number : <input type="number" placeholder="<?  $row['phone_num'] ?>" value
 
 </form>
 </div>
-</body>
-</html>

@@ -1,45 +1,12 @@
-<style>
-#results {
-	position: relative;
-	color: red;
-	top: 100
-	font-size: 20px;
-	
-}
-#results #item
-{
-	box-sizing: border-box;
-    padding:10px;
-    background: white;
-    border-bottom:1px solid #bdbdbd;
-}
 
-</style>
-<script>
-    $(document).ready(function () {
-        $("#searchbox").on('keyup',function () {
-            var key = $(this).val();
-
-            $.ajax({
-                url:'search.php',
-                type:'GET',
-                data:'keyword='+key,
-                beforeSend:function () {
-                    $("#results").slideUp('fast');
-                },
-                success:function (data) {
-                    $("#results").html(data);
-                    $("#results").slideDown('fast');
-                }
-            });
-        });
-    });
-</script>
 <?php session_start(); ?>
-<nav class="navbar navbar-inverse">
+<!-- <div class="logo-header">
+	<img id="logo" src="image/logo-1.png">
+</div> -->
+<nav class="navbar navbar-inverse navbar-static-top">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="./index.php">ProjectSpot</a>
+      <a class="navbar-brand" href="./index.php"><img src="image/light.png" style="display:inline; margin:1px; " height="100%"> ProjectSpot </a>
     </div>
     <ul class="nav navbar-nav">
       <li id="home"><a href="./index.php">Home</a></li>
@@ -72,3 +39,33 @@
       </ul>
     </div>
 </nav>
+
+<script>
+    $(document).ready(function () {
+
+			$('#logo').hover(function(){
+				$('#logo').attr('src' , 'image/logo-2.png');
+			});
+
+			$('#logo').mouseout(function(){
+				$('#logo').attr('src' , 'image/logo-1.png');
+			})
+
+        $("#searchbox").on('keyup',function () {
+            var key = $(this).val();
+
+            $.ajax({
+                url:'search.php',
+                type:'GET',
+                data:'keyword='+key,
+                beforeSend:function () {
+                    $("#results").slideUp('fast');
+                },
+                success:function (data) {
+                    $("#results").html(data);
+                    $("#results").slideDown('fast');
+                }
+            });
+        });
+    });
+</script>

@@ -17,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
     <div style="height:610px;">
         <input id="img" class="form-control" style="display:inline; width:45%;" type="file" name="poster" onchange="preview.call(this)">
         <img src="" height="600" style="display:none" id="img-preview">
-        <button class ="btn btn-primary" type="submit" name="upload" >upload</button>
+        <button class ="btn btn-primary" type="submit" name="upload" style="margin-bottom:20px">upload</button>
     </div>
   </form>
 </div>
