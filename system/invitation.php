@@ -1,10 +1,11 @@
 <?php
 require_once 'init.php';
+include 'validation.php';
 session_start();
 try {
   if (isset($_POST['inviteType']) && isset($_POST['identifier'])) {
-    $typeOfIdentifier = $_POST['inviteType'];
-    $identifier = $_POST['identifier'];
+    $typeOfIdentifier = validate($_POST['inviteType']);
+    $identifier = validate($_POST['identifier']);
 
     $typeOfIdentifier = mysqli_real_escape_string($db,$typeOfIdentifier);
     $identifier = mysqli_real_escape_string($db,$identifier);

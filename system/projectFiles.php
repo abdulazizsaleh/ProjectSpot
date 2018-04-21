@@ -1,4 +1,6 @@
 <?php
+require_once 'init.php';
+include 'validation.php';
 if (isset($_POST["action"]) && isset($_POST["project"])) {
   $project = $_POST["project"];
 
@@ -117,5 +119,25 @@ if (isset($_POST["action"]) && isset($_POST["project"])) {
       }
   }
 
+  if($_POST["action"] == "fetch-updates"){
+    if(isset($_POST["project"])){
+      $project =  mysqli_real_escape_string($db , validate($_POST["project"]));
+      $projectID = mysqli_fetch_array(mysqli_query($db , "select projectID from project where title = '".$project."'"))[0];
+      $sql = "select update_history.file_name , update_history.date, account.frist_name , account.last_name
+      from update_history ,account where update_history.modifierID = account.ID and update_history.projectID = ".$projectID." LIMIT 10";
+      if ($result = mysqli_query($db , $sql)) {
+        $output = "";
+        while ($row = mysqli_fetch_array($result)) {
+          $output .= '
+          <a href="#" class="list-group-item list-group-item-action">
+            <span class="glyphicon glyphicon-time"></span>
+            upload '.$row['file_name'].' by '.$row['frist_name'].' '.$row['last_name'].' <span class="update-date"> '.$row['date'].' </span>
+          </a>
+          ';
+        }
+        echo $output;
+      }
+    }
+  }
 }
 ?>

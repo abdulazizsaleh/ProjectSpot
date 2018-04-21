@@ -24,11 +24,6 @@
   <div class="row content">
 
     <div class="col-sm-8">
-      <!-- <h1 class="text-center">
-        Welcome to ProjectSpot
-      </h1>
-      <p class="text-justify">About Us : We are students from FCIT in King Abdulaziz University, we decided to help other student with their senior projects by uploading their posters and help them in getting sponsorship while they seek advice from others, students can rate, comment, and give views on other students posters and also their supervisor can monitor their work. where did they reach and what did they do so far and they can invite other members to join their groups.</p> -->
-
       <div class="row content" id="news">
         <br>
         <hr>

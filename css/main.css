@@ -231,3 +231,12 @@ body{
 .jumbotron p{
   color:rgb(121, 120, 113);
 }
+.update-date{
+  position: absolute;
+  right: 5%  ;
+}
+.updates-container{
+  overflow-x: hidden;
+  overflow-y: scroll;
+  height:140px;
+}

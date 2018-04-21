@@ -18,16 +18,14 @@ $project = trim(mysqli_fetch_array(mysqli_query($GLOBALS['db'],$sql))[0]);
 
       <div class="panel panel-default">
         <div class="panel-heading"><h3 class="panel-title">Last updates</h3></div>
-        <div class="panel-body well-sm">
-          <div class="list-group">
-            <a href="#" class="list-group-item list-group-item-action">
-              <img src="" alt="user image">
+        <div class="panel-body well-sm updates-container">
+          <div class="list-group" id="updateInfo">
+
+            <!-- <a href="#" class="list-group-item list-group-item-action">
+              <span class="glyphicon glyphicon-time"></span>
               in filename.extention by member name date
-            </a>
-            <a href="#" class="list-group-item list-group-item-action">
-              <img src="" alt="user image">
-              in filename.extention by member name date
-            </a>
+            </a> -->
+
           </div>
         </div>
       </div>
@@ -118,6 +116,7 @@ $project = trim(mysqli_fetch_array(mysqli_query($GLOBALS['db'],$sql))[0]);
         <form id="upload_form" method="post" enctype="multipart/form-data">
           <p>select
             <input type="file" name="upload_file" >
+            <input type="hidden" name="modifier" value="<?= $_SESSION['ID'] ?>">
             <input type="hidden" name="hidden_folder_name" id="hidden_folder_name">
             <input type="hidden" name="project" id="project">
             <input type="submit" name="upload_btn" value="upload" class="btn btn-info">
@@ -156,6 +155,7 @@ console.log(project);
 
 
     load_folders();
+    load_updates();
     function load_folders(){
       var action = "fetch";
       $.ajax({
@@ -164,6 +164,18 @@ console.log(project);
         data:{action:action, project:project},
         success:function(data){
           $('#folder_table').html(data);
+        }
+      });
+    }
+
+    function load_updates(){
+      var action = "fetch-updates";
+      $.ajax({
+        url:"/ProjectSpot/system/projectFiles.php",
+        method:"POST",
+        data:{action:action, project:project},
+        success:function(data){
+          $('#updateInfo').html(data);
         }
       });
     }

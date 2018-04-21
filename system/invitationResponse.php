@@ -2,16 +2,16 @@
 session_start();
 require_once 'init.php';
 try {
-  if(isset($_GET['response']) && isset($_GET['projectID'])){
-        $response = $_GET['response'];
-        $projectID = $_GET['projectID'];
-        $ID = $_SESSION['ID'];
+  if(isset($_GET['response']) && isset($_GET['projectID']) && isset($_GET['msgID'])){
+        $response = mysqli_real_escape_string($db,$_GET['response']);
+        $projectID =mysqli_real_escape_string($db, $_GET['projectID']);
+        $ID = mysqli_real_escape_string($db,$_SESSION['ID']);
+        $msgID = mysqli_real_escape_string($db,$_GET['msgID']);
     }else{
-
+      throw new Exception('Error: we cannot find the link variable');
     }
 
-    if ($response == 0 ) {
-      echo "Rejected";
+    if ($response == 0 ) {//Rejected
       $sql = "delete from mailbox where ID =".$_GET['msgID'];
       $r = mysqli_query($db,$sql);
       header("location:../MailBox.php");
@@ -53,7 +53,7 @@ try {
       if (!$r){
          throw new Exception('Error: we cannot link account with project ');
       }
-      $sql = "delete from mailbox where ID =".$_GET['msgID'];
+      $sql = "delete from mailbox where ID =".$msgID." AND title = 'invitation'";
       $r = mysqli_query($db,$sql);
       header("location:../MailBox.php");
     }
@@ -67,8 +67,5 @@ try {
     echo $e->getMessage();
     die();
 }
-
-
-
 
 ?>

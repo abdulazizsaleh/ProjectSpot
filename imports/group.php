@@ -10,10 +10,10 @@ try {
   $title = $row['title'];
   $sql = "select frist_name , last_name from account, chat_account WHERE chat_account.accountID =account.ID
     and chat_account.chatID = ".$chatID;
-  $result = mysqli_query($db , $sql);
+  if ($result = mysqli_query($db , $sql)) {
 ?>
   <button onclick="chatIDFun(<?= $chatID ?>)" class="list-group-item list-group-item-action contact">
-    <img src="./image/image.png" class="img-circle user-image">
+    <img src="./image/group.png" class="img-circle user-image">
     <div class="text-left">
       <h4><?= $title ?></h4>
       <?php
@@ -31,15 +31,16 @@ try {
   </button>
 
 <?php
-}// end of (if) that the user does not have group
-  } catch (mysqli_sql_exception $e) {
-    echo $e->getMessage();
-    die();
-  } catch (RuntimeException $e) {
-    echo $e->getMessage();
-    die();
-  } catch (Exception $e){
-    echo $e->getMessage();
-    die();
-  }
+      }
+    }// end of (if) that the user does not have group
+} catch (mysqli_sql_exception $e) {
+  echo $e->getMessage();
+  die();
+} catch (RuntimeException $e) {
+  echo $e->getMessage();
+  die();
+} catch (Exception $e){
+  echo $e->getMessage();
+  die();
+}
 ?>
