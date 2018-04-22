@@ -55,7 +55,7 @@ try {
       }
       $sql = "delete from mailbox where ID =".$msgID." AND title = 'invitation'";
       $r = mysqli_query($db,$sql);
-      header("location:../MailBox.php");
+      header("location:../MailBox.php?success=1");
     }
 } catch (mysqli_sql_exception $e) {
     echo $e->getMessage();

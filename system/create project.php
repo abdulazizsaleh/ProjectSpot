@@ -14,6 +14,23 @@ try {
     $sqlIn = "insert into project values(".$ID.",'".$title."','".date("Y-m-d")."',".$zero.")";
     $sqlJoin = "insert into project_account values(".$_SESSION["ID"].",".$ID.")";
 
+    if(mysqli_query($db,"insert into chat values (NULL , ".$ID." , 'Group' , NULL)")){
+      $chatID =  mysqli_fetch_array(mysqli_query($db,"SELECT chatID FROM chat ORDER BY chatID DESC LIMIT 1"))[0];
+      if (mysqli_query($db,"INSERT INTO chat_account VALUES (".$_SESSION["ID"]." , ".$chatID." , 1)")) {
+        // continue
+      } else {
+        throw new Exception('Error: we cannot link chat group with account');
+      }
+    }else{
+      throw new Exception('Error: we cannot link chat group with account');
+    }
+    // could be issue with sync
+    // $sql = "SELECT chatID FROM chat ORDER BY chatID DESC LIMIT 1";// could be issue with sync
+    // $rr = mysqli_query($db,$sql);
+    // $record = mysqli_fetch_array($rr);
+    // $chatID = $record[0];
+
+
     $resultIn = mysqli_query($db,$sqlIn);
     if( $resultIn == 1){
       $sqlJoin = mysqli_query($db,$sqlJoin);
