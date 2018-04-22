@@ -124,7 +124,7 @@ if (isset($_POST["action"]) && isset($_POST["project"])) {
       $project =  mysqli_real_escape_string($db , validate($_POST["project"]));
       $projectID = mysqli_fetch_array(mysqli_query($db , "select projectID from project where title = '".$project."'"))[0];
       $sql = "select update_history.file_name , update_history.date, account.frist_name , account.last_name
-      from update_history ,account where update_history.modifierID = account.ID and update_history.projectID = ".$projectID." LIMIT 10";
+      from update_history ,account where update_history.modifierID = account.ID and update_history.projectID = ".$projectID." order by update_history.date desc LIMIT 10";
       if ($result = mysqli_query($db , $sql)) {
         $output = "";
         while ($row = mysqli_fetch_array($result)) {
