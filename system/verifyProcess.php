@@ -2,6 +2,7 @@
   include 'validation.php';
   session_start();
   try{
+    //we should send a code to verify the user info
     $_SESSION["Firstname"]= validate($_POST['Firstname']);
     $_SESSION["Lastname"]= validate($_POST['Lastname']);
     $_SESSION["email"]= validate($_POST['email']);
