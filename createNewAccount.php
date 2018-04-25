@@ -16,7 +16,7 @@ include 'imports/navigation1.php';
          <input type="text" name="Firstname" class="form-control" placeholder="first name" required>
        </div>
        <div class="form-group col-md-6">
-         <label for="inputLastname">first name</label>
+         <label for="inputLastname">Last name</label>
          <input type="text" name="Lastname" class="form-control" placeholder="Last name" required>
        </div>
      </div>
