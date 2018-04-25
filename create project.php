@@ -7,7 +7,7 @@ include 'imports/navigation2.php';
 
   <div id="failed" class="alert alert-danger alert-dismissible fade in" hidden>
     <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-    <strong>Failed!</strong> Please try again.
+    <strong>Sorry!</strong>
   </div>
 
   <form class="form" action="system/create project.php" method="post">
@@ -21,7 +21,11 @@ include 'imports/navigation2.php';
 
 <?php
 if(isset($_GET['failed'])){
-  echo '<script type="text/javascript"> document.getElementById("failed").hidden = false; </script>';
+  echo '<script type="text/javascript">
+          var el = document.getElementById("failed");
+          el.appendChild(document.createTextNode("'.$_GET['failed'].'"));
+          el.hidden = false;
+        </script>';
 }
 include 'imports/footer.php';
 ?>

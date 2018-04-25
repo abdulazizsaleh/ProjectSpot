@@ -27,7 +27,7 @@ try {
       $result = mysqli_query($db,$sql);
       $row = mysqli_fetch_array($result);
       if ($row == null) {
-        throw new Exception('Error: we cannot identify who you are');
+        throw new Exception(' we cannot identify who you are');
       }
       $senderName = $row['frist_name']." ".$row['last_name'];
 
@@ -49,22 +49,20 @@ try {
         echo 'success';
         header("location:/ProjectSpot/invite.php?success=1");
       }else{
-        throw new Exception('sorry we could not send the invitation');
+        throw new Exception(' we could not send the invitation');
       }
     } else {
-      throw new Exception('sorry user not found');
+      throw new Exception(' user not found');
     }
   } else {
-    throw new Exception('sorry try again');
+    throw new Exception(' try again');
   }
 } catch (mysqli_sql_exception $e) {
-    echo $e->getMessage();
-    die();
+    header("location:../invite.php?FM=".$e->getMessage());
 } catch (RuntimeException $e) {
-    echo $e->getMessage();
+    header("location:../invite.php?FM=".$e->getMessage());
 } catch (Exception $e) {
-    echo $e->getMessage();
-    die();
+    header("location:../invite.php?FM=".$e->getMessage());
 }
 
 

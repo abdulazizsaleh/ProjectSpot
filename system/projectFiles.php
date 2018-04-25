@@ -105,7 +105,7 @@ if (isset($_POST["action"]) && isset($_POST["project"])) {
               $output .= '
               <tr>
                 <td></td>
-                <td>'.$file.'</td>
+                <td>'.$file.' <a href = "system/'.$path.'" download> download</a> </td>
                 <td><button type="button" class="remove btn btn-default" name="remove" id="'.$path.'">
                   <span class="glyphicon glyphicon-trash"></span>
                 </button></td>

@@ -9,7 +9,7 @@ $row = mysqli_fetch_array($result);
 $dateOfBirth = $row['DOB'];
 $today = date("Y-m-d");
 $diff = date_diff(date_create($dateOfBirth), date_create($today));
-
+$age = $diff->format('%y');
 
 //////////////////////////////
 
@@ -49,7 +49,7 @@ function imageSrc($image){
           </tr>
           <tr>
             <th>age:</th>
-            <td><? echo $diff->format('%y'); ?></td>
+            <td><?=  $age ?></td>
           </tr>
           <tr>
             <th>gender:</th>

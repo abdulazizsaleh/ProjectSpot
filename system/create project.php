@@ -8,6 +8,9 @@ try {
       $title = validate($_POST['title']);
       $title = stripcslashes($title);
       $title = mysqli_real_escape_string($db,$title);
+      if (mysqli_fetch_array(mysqli_query($db,"select * from project where title = '".$title."'"))[0] == null) {
+        throw new Exception('title is already exist');
+      }
       $result = mysqli_query($db,"select * from project");
       $rowcount = mysqli_num_rows($result);
       $ID = $rowcount + 1;
@@ -20,10 +23,10 @@ try {
         if (mysqli_query($db,"INSERT INTO chat_account VALUES (".$_SESSION["ID"]." , ".$chatID." , 1)")) {
           // continue
         } else {
-          throw new Exception('Error: we cannot link chat group with account');
+          throw new Exception(' we cannot link chat group with account');
         }
       }else{
-        throw new Exception('Error: we cannot link chat group with account');
+        throw new Exception(' we cannot link chat group with account');
       }
       // could be issue with sync
       // $sql = "SELECT chatID FROM chat ORDER BY chatID DESC LIMIT 1";// could be issue with sync
@@ -38,16 +41,16 @@ try {
           mkdir("projects folders/".$title , 0775 , true);
           header("location:../MyProject.php?success=1");
         }else{
-          throw new Exception('Error: we cannot link the project with the account');
+          throw new Exception(' we cannot link the project with the account');
         }
       }else{
-        throw new Exception('Error: we cannot create new folder to the project');
+        throw new Exception(' we cannot create new folder to the project');
       }
     } else {
-      throw new Exception('you already have project');
+      throw new Exception('you already have a project');
     }
   }else{
-    throw new Exception('Sorry try again');
+    throw new Exception(' try again');
   }
 } catch (Exception $e) {
     header("location:../create project.php?failed=".$e->getMessage());
