@@ -8,7 +8,7 @@ try {
       $title = validate($_POST['title']);
       $title = stripcslashes($title);
       $title = mysqli_real_escape_string($db,$title);
-      if (mysqli_fetch_array(mysqli_query($db,"select * from project where title = '".$title."'"))[0] == null) {
+      if (mysqli_fetch_array(mysqli_query($db,"select * from project where title = '".$title."'"))[0] != null) {
         throw new Exception('title is already exist');
       }
       $result = mysqli_query($db,"select * from project");
