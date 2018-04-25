@@ -12,12 +12,12 @@
     $_SESSION["faculty"]= validate($_POST['faculty']);
     $_SESSION["department"]= validate($_POST['department']);
     $_SESSION["ID"]= validate($_POST['ID']);
+    $_SESSION["code"] = rand(10000,99999);
+    mail($_SESSION["email"] , "verify" , $_SESSION["code"] , "From: sys@projectspot.com");
     header("location:../verify.php");
   } catch (Exception $e){
     if(isset($_SERVER['HTTP_REFERER'])) {
       header("location:".$_SERVER['HTTP_REFERER']."?invalid=1");
     }
   }
-
-
  ?>

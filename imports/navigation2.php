@@ -1,6 +1,10 @@
 <?php
   require_once 'system/init.php';
    session_start();
+   if (!isset($_SESSION["username"])) {
+     echo "<h1>unauthorized access</h1>";
+     die();
+   }
    $username = $_SESSION["username"];
 ?>
 <nav class="navbar navbar-inverse navbar-static-top">
